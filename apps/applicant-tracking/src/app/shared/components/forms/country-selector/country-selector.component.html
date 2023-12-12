@@ -1,0 +1,26 @@
+<div>
+  <nz-form-item class="form-item-container">
+    <div [class]="!isRequired? 'label':'label required'">{{ label }}</div>
+    <nz-form-control [nzErrorTip]="errorMsg">
+      <nz-input-group class="flex gap-5">
+        <nz-select
+          style="width: 100%"
+          [(ngModel)]="selectedValue"
+          [compareWith]="!single ? compareFn : compareItem"
+          (ngModelChange)="!single ? log($event) : logVal($event)"
+          nzPlaceHolder="-- Select a country --"
+          nzShowSearch
+        >
+          <nz-option
+            *ngFor="let option of optionList"
+            [nzValue]="single ? option.name : option"
+            [nzLabel]="option.name"
+            nzCustomContent
+          >
+            {{ option.name }}
+          </nz-option>
+        </nz-select>
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+</div>

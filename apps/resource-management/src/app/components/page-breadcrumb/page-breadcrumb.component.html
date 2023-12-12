@@ -1,0 +1,28 @@
+<div class="breadcrumb">
+  <nz-breadcrumb>
+    <div nz-row>
+      <div nz-col nzSpan="22">
+        <nz-breadcrumb-item>Home</nz-breadcrumb-item>
+        <nz-breadcrumb-item>Resources</nz-breadcrumb-item> <br />
+
+        <h3 *ngIf="isdefault; else employees">Employees</h3>
+        <ng-template #employees>
+          <h3>Employees</h3>
+        </ng-template>
+      </div>
+
+      <!-- *ngIf="router !=='/employee/add-employee/personal-info'" -->
+      <div nz-col nzSpan="2">
+        <button
+          *ngIf="_employeeService.isdefault && router !== '/device-detail'"
+          nz-button
+          class="addButton"
+          (click)="addEmployee()"
+        >
+          Add Employee
+        </button>
+        <!-- {{router}}-->
+      </div>
+    </div>
+  </nz-breadcrumb>
+</div>

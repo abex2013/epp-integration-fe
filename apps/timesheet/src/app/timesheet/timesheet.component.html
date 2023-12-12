@@ -1,0 +1,13 @@
+<div>
+  <!--<nz-divider></nz-divider> -->
+  <app-timesheet-header class="md:flex lg:flex xl:flex ml-8"
+    [timesheetConfig]="(timesheetConfig$ | async)"
+    [timesheet]="(timesheet$ | async)"
+    [timeEntries]="(timeEntries$ | async)"
+    [timesheetApprovals]="(timesheetApprovals$ | async)"
+    [weekFirstDate]="(timesheet$ | async)?.FromDate ?? null"
+    [weekLastDate]="(timesheet$ | async)?.ToDate ?? null">
+  </app-timesheet-header>
+  <nz-divider class="hidden sm:flex sm:m-2"></nz-divider>
+  <router-outlet></router-outlet>
+</div>

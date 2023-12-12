@@ -1,0 +1,28 @@
+
+@import url('../../excel-styles/excel-single-control.style.scss');
+.employee-prefix {
+    width: 7rem !important;
+}
+
+.excel-empmloyeeIdNumber-control {
+    width: 21rem !important;
+}
+
+::ng-deep .employeIdNumber-form-label {
+    width: fit-content !important;
+}
+
+.ant-col-sm-6 {
+    max-width: 100% !important;
+}
+
+::ng-deep .ant-select-dropdown {
+    top: 100%;
+    left: 0;
+    position: relative;
+    width: 100%;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    display: block;
+    min-width: 20vw !important;
+}

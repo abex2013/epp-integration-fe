@@ -1,0 +1,102 @@
+.label {
+    font-size: 14px;
+    line-height: 24px;
+    color: rgba(0,0,0,.85);
+    margin-bottom: 2px;
+    --antd-wave-shadow-color: #18ffba;  
+  }
+  .required::after {
+   content: ' *';
+   color: red;
+   font-weight: bold;
+  }
+  .forDes {
+    width: 90%;
+    color:rgba(0,0,0,.65);
+    text-align: justify;
+    margin-top: -25px; 
+  }
+  
+  span {
+    font-weight: 400;
+    font-size: 12px;
+    color: #8c8c8c;
+  }
+  
+  span::-moz-selection { background: #00a551; color: white; }
+  span::selection { background: #00a551; color: white; }
+  
+  .label::-moz-selection { background: #00a551; color: white; }
+  .label::selection { background: #00a551; color: white; }
+  
+  p::-moz-selection { background: #00a551; color: white; }
+  p::selection { background: #00a551; color: white; }
+  
+  input::-moz-selection { background: #00a551; color: white; }
+  input::selection { background: #00a551; color: white; }
+  
+  textarea::-moz-selection { background: #00a551; color: white; }
+  textarea::selection { background: #00a551; color: white; }
+  
+  h4::-moz-selection { background: #00a551; color: white; }
+  h4::selection { background: #00a551; color: white; }
+  
+  .text-danger-error{
+    color: #ff4d4f;
+    display: block;
+    font-size: 14px;
+  }
+  
+  .ant-modal-header {
+    padding: 16px 24px;
+    color: rgba(0,0,5,.21);
+    background: #fff;
+    border-bottom: 1px solid #f0f0f0;
+    border-radius: 2px 2px 0 0;
+  }
+  
+  h4 {
+    margin: 0;
+    color: rgba(0,0,0,.85);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    word-wrap: break-word;
+  }
+  
+  .ant-input:hover {
+    border-color: #00a551;
+    border-right-width: 1px !important;
+  }
+  
+  .ant-input:focus {
+    outline: none !important;
+    border:0.2px solid #00a551;
+    box-shadow: 0 0 2.5px #00a551;
+  }
+  
+  .ant-btn-primary {
+    color: #fff;
+    background-color: #00a551;
+    border-color: #00a551;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.12);
+    box-shadow: 0 2px 0 rgba(0,0,0,.045);
+  }
+  
+  .createGroupButton {
+    position: relative;
+    float: right;
+    margin-top: 10px;
+    margin-right: 27px;
+  }
+  
+  .ant-btn-primary:focus, .ant-btn-primary:hover {
+    color: #fff;
+    background-color: #1db360;
+    border-color: #1db360;
+  }
+  
+  .defaultBtn:focus, .defaultBtn:hover {
+    color: #1db360;
+    border-color: #1db360;
+  }

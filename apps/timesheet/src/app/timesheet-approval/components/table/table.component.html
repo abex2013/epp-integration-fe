@@ -1,0 +1,41 @@
+<nz-table class="manager-table" #basicTable [nzData]="rowData" [nzFrontPagination]=false
+  (nzCurrentPageDataChange)="onCurrentPageDataChange($event)">
+  <thead>
+    <tr>
+      <th *ngIf="bulkCheck" [nzSelections]="listOfSelection" [(nzChecked)]="checked" [nzIndeterminate]="indeterminate"
+        (nzCheckedChange)="onAllChecked($event)"></th>
+      <th [nzSortFn]="true" (click)="sorter('Name')">Name</th>
+      <th [nzSortFn]="true" (click)="sorter('Date Range')">Date range</th>
+      <th [nzSortFn]="true" (click)="sorter('Project Name')">Project Came</th>
+      <th [nzSortFn]="true" (click)="sorter('Client Name')">Client name</th>
+      <th>Hours</th>
+      <th *ngIf="status">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of rowData | sort:[sortByParam, sortDirection]" class="clickable" (click)="showModal(row.id)">
+      <td *ngIf="bulkCheck" [nzChecked]="setOfCheckedId.has(row.id)" (nzCheckedChange)="onItemChecked(row.id, $event)">
+      </td>
+      <td>{{row.name}}</td>
+      <td>{{row.dateRange | date:'MMM-dd '}} - {{ row.dateRange | date}}</td>
+      <td>{{row.projectName}}</td>
+      <td>{{row.clientName}}</td>
+      <td>{{row.hours}}</td>
+      <td *ngIf="status">
+        <div [ngClass]="{
+        'is-blue': row.status === 'Request for review',
+        'is-yellow': row.status === 'Awaiting Approval',
+        'is-red': row.status === 'Approved',
+        'is-green': row.status === 'Approved'
+      }" style="width: 140px; height: auto;">{{row.status}}</div>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>
+<div class="pagination mb-2" style="float: right;margin-right: 2rem;display: flex;">
+  <div>Showing 1 - {{rowData.length}} of {{total}} entries</div>
+  <div>
+    <nz-pagination [nzPageSize]="pageSize" [nzPageIndex]="pageIndex" [nzTotal]="total" nzSimple>
+    </nz-pagination>
+  </div>
+  

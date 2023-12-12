@@ -1,0 +1,125 @@
+.more-entry{
+  height: 30px;
+  width: 188px;
+  left: 26px;
+  top: 719px;
+  border-radius: 2px;
+  padding: 4px;
+
+  /* Auto Layout */
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 4px;
+
+
+
+  /* Project Name Plate Background/ Default */
+
+  background: #DCFFDC;
+  border-radius: 2px;
+
+}
+.more-boxes{
+  /* box */
+  height: 224px;
+  width: 204px;
+  left: 2393px;
+  top: 31770px;
+  border-radius: 2px;
+  padding: 8px;
+
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+  cursor: pointer;
+
+  /* Auto Layout */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  //position: relative;
+  /* Column Fill/Weekend */
+
+  background: #FAFAFA;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 2px;
+}
+.project-name-palet {
+  display: flex;
+
+  width: 192px;
+  height: 64px;
+  padding: 8px, 4px, 8px, 4px;
+  margin-bottom: 8px;
+
+  background-color: #DCFFDC;
+  border-radius: 2px;
+
+  &:hover {
+    background-color: #B7FFB7;
+  }
+
+  h2 {
+    width: 122px;
+    height: 52px;
+    margin-left: 14.5px;
+
+    color: #262626;
+    font-family: sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .elipses-and-hours {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 41px;
+    height: 57px;
+    padding-top: 4px;
+    margin-right: 14.5px;
+
+    i {
+      transform: rotate(90deg);
+      cursor: pointer;
+    }
+
+    h2 {
+      width: 41px;
+      height: 15px;
+
+      columns: #262626;
+      font-family: sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 13px;
+      line-height: 22px;
+      text-align: right;
+    }
+  }
+}
+
+.edit-delete {
+  width: 92px;
+
+  button {
+    width: 92px;
+    height: 46px;
+    padding: 12px, 24px;
+
+    border: none;
+
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 22px;
+    color: #262626;
+  }
+}

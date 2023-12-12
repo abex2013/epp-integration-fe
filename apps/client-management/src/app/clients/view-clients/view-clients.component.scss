@@ -1,0 +1,105 @@
+
+.table_heading
+{
+background-color: #B4DFB4 !important;
+}
+
+tr:nth-child(even) {background: #F9FFF9}
+.page-title {
+  font-family: SF Pro Display;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  color: #262626;
+}
+::ng-deep.ml-1{
+  padding-left: 9px;
+}
+header {
+  padding: 0px 2%;
+}
+
+.main_container_homepage {
+  padding: 0px 2%;
+  padding-bottom: 2rem;
+  margin-bottom: 2.3rem;
+  margin-top: 1.2rem;
+  height: 85vh;
+}
+
+
+
+.page-title {
+  font-family: SF Pro Display;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  color: #262626;
+}
+
+header {
+  padding: 0px 2%;
+}
+
+.main_container_homepage {
+  padding: 0px 2%;
+  padding-bottom: 2rem;
+  margin-bottom: 2.3rem;
+  margin-top: 1.2rem;
+  height: 85vh;
+}
+
+::ng-deep .ant-btn {
+  background-color: #00A551;
+  font-family: SF Pro Display;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #FFFFFF;
+
+}
+
+::ng-deep .pagination {
+  display: flex;
+  float: right;
+  padding-right: 15px;
+
+  
+}
+::ng-deep.manageColumns{
+  
+  display:flex;
+  float:right;
+  padding-left: 980px;
+  
+ 
+}
+
+.main-content {
+  height:110vh;
+ }
+
+
+::ng-deep .ant-btn:not([disabled]):hover {
+  background: #03da6b !important;
+  color: white;
+}
+
+
+::ng-deep .ant-table {
+  border: 1px solid #ddd !important;
+
+}
+::ng-deep  .ant-table-wrapper {
+
+  padding-left: 25px;
+  padding-right:25px;
+
+}

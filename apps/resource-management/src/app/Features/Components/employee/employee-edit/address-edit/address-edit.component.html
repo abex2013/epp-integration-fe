@@ -1,0 +1,40 @@
+
+        <nz-table class="table" #rowSelectionTable nzShowSizeChanger [nzData]="listOfData"
+            (nzCurrentPageDataChange)="onCurrentPageDataChange($event)">
+
+            <thead>
+                <tr class="tr">
+
+                    <th>Country</th>
+                    <th>City/SubCity</th>
+                    <th style="max-width: 1px;">Actions</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of rowSelectionTable.data">
+
+
+                    <td>{{ data.name }}</td>
+                    <td>{{ data.age }}</td>
+
+                    <td>
+                        <div nz-row>
+
+                            <div nz-col nzSpan="2" class="editable-cell" [hidden]="editId === data.id"
+                                (click)="startEdit(data.id)">
+                                <i nz-icon nzType="edit" nzTheme="outline"></i>
+                            </div>
+                            &nbsp; &nbsp;
+                            <div nz-col nzSpan="2">
+                                <a nz-popconfirm nzPopconfirmTitle="Sure to delete?"
+                                    (nzOnConfirm)="deleteRow(data.id)"><i nz-icon nzType="delete"
+                                        nzTheme="outline"></i></a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </nz-table>
+      

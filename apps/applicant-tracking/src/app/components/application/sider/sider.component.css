@@ -1,0 +1,128 @@
+.inner-content {
+  width: 100%;
+  background-color: #fff;
+}
+
+.header-title {
+  box-shadow: inset 0px -1px 0px #dadada;
+}
+
+.inner-side-bar {
+  border-right: 1px solid #dadada;
+}
+
+.numberCircle {
+  display: inline-block;
+  line-height: 0px;
+  font-size: 14px;
+
+  background: #ffffff;
+
+  border: 1px solid #d9d9d9;
+  box-sizing: border-box;
+  border-radius: 25px;
+}
+
+.numberCircle span {
+  display: inline-block;
+  padding-top: 50%;
+  color: #bfbfbf;
+  padding-bottom: 50%;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+.done {
+  display: inline-block;
+  line-height: 0px;
+  font-size: 14px;
+
+  background: #ffffff;
+
+  border: 1px solid #1890ff;
+  box-sizing: border-box;
+  border-radius: 25px;
+}
+.done span {
+  display: inline-block;
+  padding-top: 50%;
+  color: #1890ff;
+  padding-bottom: 50%;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.ant-menu-item-selected .numberCircle span {
+  display: inline-block;
+  padding-top: 50%;
+  color: #fff;
+  padding-bottom: 50%;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.ant-menu-item-selected .numberCircle {
+  display: inline-block;
+  line-height: 0px;
+  font-size: 14px;
+
+  background: #1890ff;
+
+  border: 1px solid #1890ff;
+  box-sizing: border-box;
+  border-radius: 25px;
+}
+
+.ant-menu-item-selected .ant-badge .ant-scroll-number-custom-component {
+  border: 1px solid #1890ff;
+  box-sizing: border-box;
+  border-radius: 32px;
+  padding-top: 5px;
+  padding-bottom: 2px;
+}
+.ant-menu-item {
+  background-color: #ffffff !important;
+  padding: 8px, 0px, 8px, 32px;
+  gap: 7px;
+}
+.ant-menu-item-selected {
+  background-color: #dcffdc !important;
+  display: flex;
+}
+a {
+  position: static;
+  width: 163px;
+  height: 20px;
+  left: 56px;
+  top: 10px;
+
+  /* Heading 5/Medium/16 */
+  /* font-family: SF Pro Display; */
+  font-style: normal;
+  font-weight: 450;
+  font-size: 14px;
+  line-height: 24px;
+
+  /* or 150% */
+  display: flex;
+  align-items: center;
+
+  /* Body Text/ Shade 2 */
+  color: #595959;
+
+  /* Inside Auto Layout */
+  flex: none;
+  order: 1;
+  flex-grow: 1;
+  margin: 0px 16px;
+}
+
+.ant-scroll-number-custom-component {
+  border: 1px solid #1890ff;
+  font-size: 9px;
+  box-sizing: border-box;
+  border-radius: 32px;
+  padding-top: 5px;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-bottom: 5px;
+}

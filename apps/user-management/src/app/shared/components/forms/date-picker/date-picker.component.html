@@ -1,0 +1,21 @@
+<div [formGroup]="form" class="form-container">
+  <nz-form-item class="form-item-container">
+    <div [class]="!isRequired ? 'label' : 'label required'">
+      {{ label }}
+    </div>
+
+    <nz-form-control [nzErrorTip]="displayError ? errorMsg : ''">
+      <nz-input-group>
+        <nz-date-picker
+          class="date-picker"
+          nzFormat="dd-MM-yyyy"
+          [formControlName]="fcn"
+          [nzPlaceHolder]="placeholder"
+          [nzDisabledDate]="disabledDate"
+          [nzDisabled]="disabled"
+        >
+        </nz-date-picker>
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+</div>

@@ -1,0 +1,26 @@
+
+  <ng-container *ngFor="let control of formArray.controls; let i = index">
+    <nz-form-item class="excel-form-item">
+        <nz-form-label class="excel-form-label" [nzSm]="labelConfig.nzSm" [nzXs]="labelConfig.nzXs" [nzRequired]="required"
+        [hidden]="i > 0">
+          {{label}}
+        </nz-form-label>
+        <nz-form-control [nzSm]="controlConfig.nzSm" [nzXs]="controlConfig.nzXs" [nzErrorTip]="errMessages[i]"
+        nzHasFeedback>
+      <nz-input-group [nzAddOnAfter]="suffixTemplate">
+        <input [formControl]="getControl(i)" 
+          class="excel-single-control"
+          nzPlaceHolder="example@domain.ext" (ngModelChange)="onChange(i)" nz-input />
+        <ng-template #suffixTemplate [hidden]="(maxAmount === 1)">
+          <excel-buttons-multiple-controls
+            [exMaxCount]="maxAmount"
+            [exCount]="formArray.length"
+            [exIndex]="i"
+            (exResponse)="onAddRemove($event)"
+            ></excel-buttons-multiple-controls>
+        </ng-template>
+      </nz-input-group>
+    </nz-form-control>
+</nz-form-item>
+  </ng-container>
+

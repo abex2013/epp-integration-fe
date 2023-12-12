@@ -1,0 +1,54 @@
+<div class="main-content" style="margin-bottom: 56px;"> <!-- margin botton is added because the footer has fixed position -->
+  <div nz-row style="padding-top: 24px;">
+    <div nz-col nzSpan="18">
+    <nz-form-item>
+      <nz-form-control class="search" [nzSm]="14" [nzXs]="24" nzErrorTip="Please input search!">
+        <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
+          <input type="text" nz-input placeholder="Search" />
+        </nz-input-group>
+        <ng-template #suffixIconButton>
+          <button nz-button nzType="default" nzSearch><i nz-icon nzType="search"></i></button>
+        </ng-template>
+      </nz-form-control>
+    </nz-form-item>
+    </div>
+    <div nz-col nzSpan="6">
+      <p style="float: right; color: #00A551; font-weight: 500; font-size: 16px;">Manage Columns</p>
+    </div>
+  </div>
+  <div nz-row>
+    <div nz-col nzSpan="24">
+      <nz-table #basicTable [nzData]="listOfDeviceDetails" [nzShowPagination]="false">
+        <thead>
+          <tr>
+            <th>Device Name</th>
+            <th>Business Unit</th>
+            <th>Created Date</th>
+            <th>Invoice Number</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of basicTable.data">
+            <td>{{ data.DeviceName }}</td>
+            <td>{{ data.BusinessUnit }}</td>
+            <td>{{ data.CreatedDate | date:"MM-dd-YYYY" }}</td>
+            <td>{{ data.InvoiceNumber }}</td>
+            <td>
+              <i nz-icon nzType="edit" nzTheme="outline" routerLink="/device-detail/edit/{{data.Guid}}"></i>
+              <i style="padding-left: 15px;" nz-icon nzType="delete" nzTheme="outline"
+                (click)="deleteHandler(data.Guid)"></i>
+            </td>
+          </tr>
+        </tbody>
+      </nz-table>
+      <div class="pagination" style="float: right; display: inline-flex; margin-top: 16px;" *ngIf="this.pagination">
+        Showing {{ this.pagination.PageSize * (this.pagination.PageIndex -1) + 1 }}-
+        {{ this.pagination.PageSize * (this.pagination.PageIndex) > this.pagination.TotalRecord ? this.pagination.TotalRecord : this.pagination.PageSize * (this.pagination.PageIndex) }} of 
+        {{this.pagination.TotalRecord}} entries
+        <nz-pagination [nzPageSize]="this.pagination.PageSize" [nzPageIndex]="1" [nzTotal]="this.pagination.TotalRecord" nzSimple
+        (nzPageIndexChange)="pageIndexChange($event)"></nz-pagination>
+      </div>
+    </div>
+  </div>
+</div>

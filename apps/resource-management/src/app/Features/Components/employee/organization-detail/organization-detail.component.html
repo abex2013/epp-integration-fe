@@ -1,0 +1,12 @@
+<exec-epp-page-title></exec-epp-page-title>
+<div nz-row>
+    <div nz-col nzSpan="4">
+        <exec-epp-side-bar  [active]="4"> </exec-epp-side-bar>
+    </div>
+    <div nz-col nzSpan="20" class="inner-content">
+        <div class="page-title">
+            <h2>{{isEdit? 'Edit': 'Add'}} Organizational Detail</h2>
+        </div>
+        <exec-epp-organizational-details-group></exec-epp-organizational-details-group>
+    </div>
+</div>

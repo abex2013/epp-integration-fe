@@ -1,0 +1,108 @@
+* {
+  font-family: -apple-system, system-ui, BlinkMacSystemFont;
+  font-style: normal;
+font-weight: normal;
+}
+
+.page-title {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  color: #262626;
+}
+
+header {
+  padding: 0px 2%;
+}
+
+hr {
+  display: block;
+  height: 1px;
+
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+section {
+  padding: 0px 2%;
+}
+
+td {
+  font-family: -apple-system, system-ui, BlinkMacSystemFont;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.review {
+    font-weight: normal;
+  background: #E6F7FF;
+  color: #1890FF;
+  border: 1px solid #91D5FF;
+  text-align: center;
+  width: 140px;
+  height: 26px;
+}
+
+.submited {
+  font-weight: normal;
+  background: #FFFBE6;
+  color: #FAAD14;
+  border: 1px solid #FFE58F;
+  text-align: center;
+  width: 140px;
+  height: 26px;
+}
+
+.approved {
+  background: #F6FFED;
+  color: #52C41A;
+  border: 1px solid #B7EB8F;
+  text-align: center;
+  width: 140px;
+  height: 26px;
+}
+
+.pagination {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #595959;
+
+}
+
+::ng-deep .ant-table {
+    border:4px  solid #FAFAFA;
+}
+
+ant-table-column-title {
+ color:#262626 ;
+}
+
+
+  ::ng-deep .ant-table-column-title {
+  font-style: normal;
+font-weight: 500;
+font-size: 16px;
+}
+
+ .ant-btn {
+    background-color: #00A551;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+  }
+ .ant-btn:not([disabled]):hover {
+    background: #03da6b !important;
+    color: white;
+  }

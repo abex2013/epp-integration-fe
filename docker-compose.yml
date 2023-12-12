@@ -1,0 +1,24 @@
+version: '3.4'
+
+services:
+  applicant-tracking:
+    image: blens/at:latest
+    ports: 
+      - "4201:80"
+  epp:
+    image: blens/eppfe:latest
+    ports: 
+      - "4202:80"
+  project-management:
+    image: blens/pm:latest
+    ports:
+      - "4203:80"
+  timesheet:
+    image: blens/ts:latest
+    ports:
+      - "4204:80"
+  resource-management:
+    image: blens/rm:latest
+    ports:
+      - "4205:80"
+  

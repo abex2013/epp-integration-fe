@@ -1,0 +1,33 @@
+<nz-form-item
+    class="form-item">
+    <nz-form-label
+      class="form-label"
+      [nzSm]="labelConfig.nzSm" 
+      [nzXs]="labelConfig.nzXs"
+      [nzRequired]="required">
+      {{label}}
+    </nz-form-label>
+    <nz-form-control
+        [nzSm]="controlConfig.nzSm" 
+        [nzXs]="controlConfig.nzXs"
+        [nzErrorTip]="errMessage"
+        nzHasFeedback>
+        <nz-input-group
+            [nzAddOnBefore]="prefixTemplate">
+            <input
+            [formControl]="myControl" nzPlaceHolder="Smith" (ngModelChange)="onChange()" nz-input />
+            <ng-template #prefixTemplate
+                >
+                <nz-select
+                class="prefix employee-prefix"
+                [formControl]="prefixControl">
+                    <nz-option
+                        *ngFor="let choice of (prefices$ | async)"
+                        [nzValue]="choice.code"
+                        [nzLabel]="choice.code+' '+choice.country">
+                    </nz-option>
+                </nz-select>
+            </ng-template>
+        </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>

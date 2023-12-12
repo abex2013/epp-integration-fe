@@ -1,0 +1,15 @@
+<div [formGroup]="form" class="form-container">
+  <nz-form-item class="form-item-container">
+    <nz-form-control
+      [nzErrorTip]="displayError ? errorMsg : ''"
+      
+    >
+      <nz-input-group [nzSuffix]="suffixIcon" [nzPrefix]="prefixIcon">
+       
+        <label nz-checkbox [formControlName]="fcn">
+          {{label}}
+        </label>
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+</div>

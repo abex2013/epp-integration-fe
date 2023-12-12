@@ -1,0 +1,116 @@
+.table_heading
+{
+background-color: #E8FFE8 !important;
+}
+tr:nth-child(even) {background: #F9FFF9}
+
+a {
+  padding-right: 0.6vw;
+  color: #262626;
+}
+.ant-btn-primary {
+  color: #262626 !important;
+  background: none !important;
+  border: 1px solid #d9d9d9 !important;
+}
+
+nz-table.table-container.ant-table-wrapper {
+  padding-top: 1%;
+}
+::ng-deep .ant-tabs-tab.ant-tabs-tab-active {
+  background:none !important;
+}
+
+tr.ant-table-row.ng-star-inserted {
+  height: 56px !important;
+  padding:16px !important;
+}
+.main_container_homepage {
+  padding: 0px 2%;
+}
+
+
+
+::ng-deep .ant-table-thead>tr>th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
+  content:none !important;
+}
+
+::ng-deep .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color:#00A551 !important;
+  font-size: 16px !important;
+}
+::ng-deep .ant-tabs-tab:hover {
+  color: #262626 !important;
+}
+::ng-deep .ant-tabs-ink-bar {
+
+  background:#00A551 !important;
+
+}
+::ng-deep .ant-tabs-content-holder {
+
+  font-family: SF Pro Display !important;
+
+}
+::ng-deep .ant-table-content {
+  font-size: 16px !important;
+}
+
+.ant-table-column-sorter:active {
+  color: #bfbfbf;
+
+  transition: color .3s;
+}
+
+::ng-deep .ant-table {
+  border: 1px solid #ddd !important;
+}
+
+
+
+tr.ant-table-row.ng-star-inserted {
+  height: 56px !important;
+  padding:16px !important;
+}
+
+
+
+
+
+::ng-deep .ant-table-content {
+  font-size: 16px !important;
+}
+
+.ant-table-column-sorter:active {
+  color: #bfbfbf;
+
+  transition: color .3s;
+}
+
+::ng-deep .ant-table {
+  border: 1px solid #ddd !important;
+}
+
+
+::ng-deep .ant-table-pagination.ant-pagination {
+
+   display: none !important;
+}
+.ant-pagination {
+  float: right;
+  padding: 15px 0px 15px 15px;
+
+}
+
+* {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.manage-columns {
+
+  padding-bottom: 10px;
+}
+
+.projects{
+  height: 95vh;
+}

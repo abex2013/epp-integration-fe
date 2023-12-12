@@ -1,0 +1,83 @@
+[nz-menu] {
+  width: 240px;
+  // margin: 10px -230px;
+  height: 1100px;
+  border-right: 4px solid #D9D9D9;
+  font-weight: 500;
+  font-family:-apple-system,
+  BlinkMacSystemFont,
+  'Segoe UI',
+  Roboto,
+  Oxygen,
+  Ubuntu,
+  Cantarell,
+  'Open Sans',
+  'Helvetica Neue',
+  sans-serif
+
+
+}
+
+.nz-icon {
+  margin-right: 10px;
+}
+
+::ng-deep.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background-color: #DCFFDC;
+  color: #262626;
+}
+
+
+::ng-deep.ant-menu-inline .ant-menu-item::after,
+.ant-menu-vertical .ant-menu-item::after,
+.ant-menu-vertical-left .ant-menu-item::after,
+.ant-menu-vertical-right .ant-menu-item::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border-right: 3px solid #ff1894;
+  transform: scaleY(.0001);
+  opacity: 0;
+  transition: transform .15s cubic-bezier(.215, .61, .355, 1), opacity .15s cubic-bezier(.215, .61, .355, 1);
+  content: '';
+}
+
+
+::ng-deep.ant-menu-light .ant-menu-item-active,
+.ant-menu-light .ant-menu-item:hover,
+.ant-menu-light .ant-menu-submenu-active,
+.ant-menu-light .ant-menu-submenu-title:hover,
+.ant-menu-light .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open {
+  color: black;
+}
+
+nz-content {
+  padding: 0 120px;
+  //width: 100%;
+}
+
+
+.inner-content {
+  background: #fff;
+  height: auto;
+  float: left;
+  padding: 24px;
+
+
+
+font-weight: 500;
+font-family:-apple-system,
+BlinkMacSystemFont,
+'Segoe UI',
+Roboto,
+Oxygen,
+Ubuntu,
+Cantarell,
+'Open Sans',
+'Helvetica Neue',
+sans-serif
+
+
+
+}

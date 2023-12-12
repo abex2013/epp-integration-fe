@@ -1,0 +1,90 @@
+<!-- <header>
+  <nz-breadcrumb nz-page-header-breadcrumb class="mt-4">
+    <nz-breadcrumb-item>Home</nz-breadcrumb-item>
+    <nz-breadcrumb-item>
+      <a [routerLink]="['/timesheet']">Timesheet </a>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>View Submissions</nz-breadcrumb-item>
+  </nz-breadcrumb>
+  <div nz-row>
+    <div class="page-title"> View Submissions </div>
+  </div>
+</header> -->
+<!-- <hr> -->
+<section id="submissionHistory" class="mb-20">
+  <span nz-row>
+    <a nzSm="4" nzXs="4" (click)="navaigateToTimeSheet()"><svg width="76" height="24" viewBox="0 0 76 24" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.875 19L9.10875 17.59L5.10125 13H19.25V11H5.10125L9.1175 6.41L7.875 5L1.75 12L7.875 19Z"
+          fill="#595959" />
+        <path
+          d="M30.5625 17H26.0391V5.72656H30.5391C31.5391 5.72656 32.3411 5.98438 32.9453 6.5C33.5495 7.01042 33.8516 7.6901 33.8516 8.53906C33.8516 9.13802 33.6562 9.67448 33.2656 10.1484C32.8802 10.6172 32.4062 10.8984 31.8438 10.9922V11.0547C32.6146 11.1432 33.2344 11.4401 33.7031 11.9453C34.1719 12.4453 34.4062 13.0677 34.4062 13.8125C34.4062 14.8073 34.0651 15.5885 33.3828 16.1562C32.7005 16.7188 31.7604 17 30.5625 17ZM27.7891 7.15625V10.5234H29.75C30.5052 10.5234 31.0859 10.3724 31.4922 10.0703C31.8984 9.76823 32.1016 9.33854 32.1016 8.78125C32.1016 8.26042 31.9297 7.85938 31.5859 7.57812C31.2422 7.29688 30.7526 7.15625 30.1172 7.15625H27.7891ZM27.7891 15.5703H30.2031C30.9896 15.5703 31.5885 15.4115 32 15.0938C32.4115 14.776 32.6172 14.3125 32.6172 13.7031C32.6172 12.474 31.7786 11.8594 30.1016 11.8594H27.7891V15.5703ZM38.5859 15.8047C39.1797 15.8047 39.6771 15.625 40.0781 15.2656C40.4844 14.901 40.6875 14.4531 40.6875 13.9219V13.2734L38.6641 13.3984C38.1589 13.4349 37.7682 13.5599 37.4922 13.7734C37.2214 13.9818 37.0859 14.263 37.0859 14.6172C37.0859 14.9766 37.2214 15.2656 37.4922 15.4844C37.7682 15.6979 38.1328 15.8047 38.5859 15.8047ZM38.1172 17.1406C37.3099 17.1406 36.651 16.9115 36.1406 16.4531C35.6354 15.9948 35.3828 15.3984 35.3828 14.6641C35.3828 13.9453 35.6484 13.375 36.1797 12.9531C36.7109 12.526 37.4635 12.2865 38.4375 12.2344L40.6875 12.1016V11.4688C40.6875 11.0104 40.5417 10.6536 40.25 10.3984C39.9583 10.138 39.5547 10.0078 39.0391 10.0078C38.5599 10.0078 38.1693 10.1146 37.8672 10.3281C37.5703 10.5417 37.3828 10.8359 37.3047 11.2109H35.7109C35.7578 10.4505 36.0859 9.83073 36.6953 9.35156C37.3047 8.8724 38.1068 8.63281 39.1016 8.63281C40.0964 8.63281 40.888 8.8776 41.4766 9.36719C42.0703 9.85677 42.3672 10.513 42.3672 11.3359V17H40.75V15.6484H40.7109C40.4766 16.1016 40.1198 16.4635 39.6406 16.7344C39.1667 17.0052 38.6589 17.1406 38.1172 17.1406ZM51.0625 11.6094H49.4531C49.3646 11.1458 49.151 10.7682 48.8125 10.4766C48.4792 10.1849 48.0495 10.0391 47.5234 10.0391C46.8672 10.0391 46.3411 10.2969 45.9453 10.8125C45.5547 11.3229 45.3594 12.0156 45.3594 12.8906C45.3594 13.7812 45.5547 14.4792 45.9453 14.9844C46.3411 15.4896 46.8724 15.7422 47.5391 15.7422C48.0547 15.7422 48.4766 15.6094 48.8047 15.3438C49.138 15.0729 49.3542 14.6979 49.4531 14.2188H51.0781C50.9896 15.099 50.6198 15.8099 49.9688 16.3516C49.3229 16.888 48.5078 17.1562 47.5234 17.1562C46.3411 17.1562 45.3984 16.776 44.6953 16.0156C43.9922 15.25 43.6406 14.2083 43.6406 12.8906C43.6406 11.5885 43.9922 10.5547 44.6953 9.78906C45.3984 9.01823 46.3359 8.63281 47.5078 8.63281C48.5286 8.63281 49.3568 8.91927 49.9922 9.49219C50.6276 10.0599 50.9844 10.7656 51.0625 11.6094ZM54.0391 12.3047L57.3594 8.78125H59.3438L55.9375 12.3203L59.4766 17H57.5156L54.7266 13.3516L54.0234 14.0469V17H52.3359V5.72656H54.0234V12.3047H54.0391Z"
+          fill="#595959" />
+      </svg>
+    </a>
+  </span>
+ 
+  <nz-date-picker class="mt-3 mb-3" nzMode="week" [(ngModel)]="date" (ngModelChange)="getWeek($event)"></nz-date-picker>
+ <nz-table  #filterTable
+  nzSize="small"
+ [nzOuterBordered]="true"
+  [nzFrontPagination]="false"
+  [nzData]="timeSheetHistory"
+  (nzQueryParams)="onQueryParamsChange($event)">
+    <thead>
+      <tr>
+        <th [nzSortOrder]="listOfColumns[0].sortOrder" [nzSortFn]="listOfColumns[0].sortFn"
+          [nzSortDirections]="listOfColumns[0].sortDirections">
+          {{listOfColumns[0].name }}
+        </th>
+
+        <th nzColumnKey="ProjectName" [nzSortOrder]="listOfColumns[1].sortOrder" [nzSortFn]="listOfColumns[1].sortFn"
+          [nzSortDirections]="listOfColumns[1].sortDirections" [nzFilterMultiple]="listOfColumns[1].filterMultiple"
+          [nzFilters]="listOfColumns[1].listOfFilter" [nzFilterFn]="listOfColumns[1].filterFn">
+          {{ listOfColumns[1].name }}
+        </th>
+
+
+        <th nzColumnKey="ClientName" [nzSortOrder]="listOfColumns[2].sortOrder" [nzSortFn]="listOfColumns[2].sortFn"
+          [nzSortDirections]="listOfColumns[2].sortDirections" [nzFilterMultiple]="listOfColumns[2].filterMultiple"
+          [nzFilters]="listOfColumns[2].listOfFilter" [nzFilterFn]="listOfColumns[2].filterFn">
+          {{ listOfColumns[2].name }}
+        </th>
+
+        <th nzColumnKey="status" [nzSortOrder]="listOfColumns[3].sortOrder" [nzSortFn]="listOfColumns[3].sortFn"
+          [nzSortDirections]="listOfColumns[3].sortDirections" 
+          [nzFilters]="listOfColumns[3].listOfFilter" 
+          >
+          {{ listOfColumns[3].name }}
+        </th>
+
+        <th>
+          {{listOfColumns[4].name }}
+        </th>
+      </tr>
+    </thead>
+    <tbody style="margin-bottom: 0px !important; padding-bottom: 0px;!important " >
+      <tr *ngFor="let data of   filterTable.data">
+        <td>{{data.FromDate | date:'MMM' }} {{data.FromDate | date:'L'}} - {{data.ToDate | date}} </td>
+        <td>{{ data.ProjectName}} </td>
+        <td>{{  data.ClientName}}</td>
+        <td>
+
+          <div *ngIf="data.Status===1" class="approved"> Approved </div>
+          <div *ngIf="data.Status===0" class="submited"> Submitted</div>
+          <div *ngIf="data.Status===2" class=" review">  Request for review </div>
+
+        </td>
+        <td>
+          <ng-template [ngIf]="data.Comment===''"> N/A </ng-template>
+          {{ data.Comment}}
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+  <span nz-row class="pagination  flex justify-end">
+    Showing {{ pageSize}} of {{total}} entries
+    <nz-pagination [nzPageIndex]="pageIndex" [nzTotal]="total" (nzPageIndexChange)="PageIndexChange($event)" nzSimple>
+    </nz-pagination>
+  </span>
+</section>

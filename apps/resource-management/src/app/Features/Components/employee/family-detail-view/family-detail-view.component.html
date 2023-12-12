@@ -1,0 +1,91 @@
+<exec-epp-page-title></exec-epp-page-title>
+<div nz-row>
+  <div nz-col nzSpan="4">
+    <exec-epp-side-bar [active]="2"> </exec-epp-side-bar>
+  </div>
+  <div nz-col nzSpan="20" class="inner-content">
+    <div nz-row>
+      <div nz-col nzSpan="20" class="page-title">
+        <h1>Family Details</h1>
+      </div>
+      <div nz-col nzSpan="4">
+        <button
+          class="addButton"
+          nz-button
+          nzType="primary"
+          (click)="addfamilies()"
+        >
+          <span>Add Family Details</span>
+        </button>
+      </div>
+    </div>
+
+    <nz-table
+      class="table"
+      #rowSelectionTable
+      nzShowSizeChanger
+      [nzData]="form.allFamilyDetails"
+    >
+      <thead>
+        <tr class="tr">
+          <th>Full Name</th>
+          <th>Relationship with Employee</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of form.allFamilyDetails; let i = index">
+          <td>{{ data.FullName }}</td>
+          <td>{{ data.Relationship?.Name }}</td>
+
+          <td>
+            <div nz-row>
+              <div
+                nz-col
+                nzSpan="2"
+                class="editable-cell"
+                [hidden]="editId === data.Guid"
+                (click)="startEdit(i)"
+              >
+                <i nz-icon nzType="edit" nzTheme="outline"></i>
+              </div>
+              &nbsp; &nbsp;
+              <div nz-col nzSpan="2">
+                <a nz-popconfirm (click)="showConfirm(i)"
+                  ><i nz-icon nzType="delete" nzTheme="outline"></i
+                ></a>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+</div>
+
+<nz-modal
+  [(nzVisible)]="isVisible"
+  [nzWidth]="'36%'"
+  [nzTitle]="addButton + ' Family Details'"
+  [nzFooter]="footer"
+  (nzOnCancel)="exitModal()"
+  (nzOnOk)="handleOk()"
+  nzMaskClosable="false"
+>
+  <ng-container *nzModalContent class="">
+    <div class="overflow-scroll">
+      <exec-epp-family-detail-group></exec-epp-family-detail-group>
+    </div>
+    <button
+      nz-button
+      class="saveButton"
+      (click)="add()"
+      [disabled]="!form.familyDetail.valid"
+      [title]="form.familyDetail.invalid?'Enter valid family detail.':''"
+    >
+      {{addButton}}
+    </button>
+    &nbsp;
+    <button nz-button class="cancelButton" (click)="resetForm()">Clear</button>
+  </ng-container>
+</nz-modal>

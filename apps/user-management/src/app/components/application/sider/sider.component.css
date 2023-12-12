@@ -1,0 +1,39 @@
+.inner-content {
+  width: 100%;
+  background-color: #fff;
+}
+
+.header-title {
+  box-shadow: inset 0px -1px 0px #dadada;
+}
+
+.inner-side-bar {
+  border-right: 1px solid #dadada;
+}
+
+.ant-menu-item-selected li { 
+  background-color: #00a551;
+}
+
+.ant-menu-item-selected a {
+  color: #00a551;
+}
+
+.ant-menu-item-selected i {
+  color: #00a551;
+}
+.ant-menu-item {
+  background-color: #ffffff !important;
+  padding: 8px, 0px, 8px, 32px;
+  gap: 7px;
+}
+.ant-menu-item:hover a {
+  color: #00a551 !important;
+}
+.ant-menu-item:hover i {
+  color: #00a551 !important;
+}
+.ant-menu-item-selected {
+  background-color: #dcffdc !important;
+}
+

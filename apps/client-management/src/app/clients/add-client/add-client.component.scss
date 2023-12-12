@@ -1,0 +1,136 @@
+.main_container_homepage {
+  padding: 0px 2%;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+  height: 95vh;
+}
+
+
+::ng-deep .ant-tabs-nav {
+  font-size: 26px;
+}
+
+::ng-deep .ant-tabs-tab-btn {
+  color: #262626;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.invalisForm {
+  position: relative;
+  padding: .5rem;
+  border: 1.5px solid red !important;
+  outline-color: red !important;
+
+}
+
+
+
+.page-title {
+  font-family: SF Pro Display;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  color: #262626;
+}
+
+.tab-content {
+  padding: 0px 20px 25px;
+  height: 85vh;
+
+}
+
+* {
+  font-family: -apple-system, system-ui, BlinkMacSystemFont;
+
+}
+
+
+::ng-deep .ant-tabs>.ant-tabs-nav .ant-tabs-nav-list,
+.ant-tabs>div>.ant-tabs-nav .ant-tabs-nav-list {
+  box-shadow: inset -2px 0px 0px #DADADA;
+}
+
+::ng-deep .ant-tabs-nav-scroll {
+  display: flex;
+  justify-content: center;
+}
+
+
+::ng-deep .ant-tabs-tab:hover {
+  color: #262626;
+}
+
+::ng-deep ant-tabs-tab.ant-tabs-tab-active {
+  background: #DCFFDC;
+}
+
+
+::ng-deep .ant-tabs>.ant-tabs-nav .ant-tabs-nav-list,
+.ant-tabs>div>.ant-tabs-nav .ant-tabs-nav-list {
+  box-shadow: inset -3px 0px 0px #EAEAEA;
+
+}
+
+::ng-deep .ant-tabs-ink-bar {
+  box-shadow: inset -3px 0px 0px #EAEAEA;
+}
+
+::ng-deep .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  color: #262626;
+
+
+}
+
+
+
+::ng-deep ant-btn:hover, .ant-btn:focus, .ant-btn:active
+
+::ng-deep .ant-tabs-tab:hover {
+  color: #262626;
+}
+
+header {
+  padding: 0px 2%;
+}
+
+::ng-deep .ant-tabs-tab.ant-tabs-tab-active {
+  background: #DCFFDC;
+}
+
+
+
+::ng-deep .ant-btn {
+  background-color: #00A551;
+  font-family: SF Pro Display;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #FFFFFF;
+}
+
+
+::ng-deep .ant-btn:not([disabled]):hover {
+  background: #03da6b !important;
+  color: white;
+
+}
+
+.clear-btn {
+  background: white;
+  color: #00A551;
+  margin-right: 10px;
+  border: 0.5px solid #00A551;
+}
+
+

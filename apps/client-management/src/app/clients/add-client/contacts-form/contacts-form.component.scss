@@ -1,0 +1,101 @@
+$tableHeadingBackgroundColour:#B4DFB4  !important;
+$tblRowBackgroundColour:#F9FFF9;
+$addClientButtonFloat:right;
+$countryCodeWidth:4.5vw !important;
+$modalWindowPaddingTop:15px;
+$modalWindowPaddingBottom:50px;
+$footer-btn:left;
+$addBtnMarginRight:1rem;
+$transformBeforeErrorAstrics:translate(120px, 0%);
+$floatConfirmationBox:left;
+$padding-left:35%;
+$background:red;
+$color:white;
+$border:red;
+.table_heading
+{
+background-color: $tableHeadingBackgroundColour
+}
+tr:nth-child(even) {background: $tblRowBackgroundColour}
+
+button.ant-btn {
+  float: $addClientButtonFloat;
+}
+::ng-deep  .phone-select {
+  min-width: $countryCodeWidth;
+}
+::ng-deep .ant-modal-footer {
+
+  text-align: left !important;
+}
+
+
+.footer-btn {
+  float: $footer-btn;
+}
+button.add-btn.ant-btn {
+
+  margin-right: $addBtnMarginRight;
+}
+::ng-deep .ant-modal-content {
+  padding-top:  $modalWindowPaddingTop;
+  padding-bottom: $modalWindowPaddingBottom;
+
+
+}
+::ng-deep .ant-form-item {
+
+  margin-bottom: 15px !important;
+}
+
+::ng-deep ::before {
+
+  transform: $transformBeforeErrorAstrics;
+}
+::ng-deep .ant-btn-dangerous.ant-btn-primary {
+  $background:red;
+  $color:white;
+  $border:red;
+}
+::ng-deep .ant-btn-dangerous.ant-btn-primary:hover{
+  background: red !important;
+}
+::ng-deep .ant-modal-confirm .ant-modal-confirm-btns {
+  float: $floatConfirmationBox !important;
+  padding-left: $padding-left !important;
+
+}
+::ng-deep .ant-table-thead>tr>th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
+  content:none !important;
+}
+.client-label.ant-form-item-label.ant-col.ant-col-xs-24.ant-col-sm-24 {
+  margin-left: -0.7vw;
+}
+.error-block
+{
+  color: red;
+}
+.button-style {
+  float: right;
+  background: #00a551;
+  color: white;
+  border: 0.5px solid #00a551;
+  padding: 4px;
+}
+.button-style:hover {
+  background: #04d86a;
+}
+.clear-btn {
+  background: white;
+  color: #00a551;
+  margin-right: 10px;
+  border: 0.5px solid #00a551;
+}
+::ng-deep ant-btn:hover, .ant-btn:focus, .ant-btn:active {
+  background-color: #00A551;
+  font-family: SF Pro Display;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #FFFFFF;
+}

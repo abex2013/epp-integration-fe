@@ -1,0 +1,77 @@
+<div class="{{ dateColumnHighlightClass }} flex justify-center items-center rounded-md border border-gray-300 mr-2 mt-2 sm:mb-10 h-100">
+  
+  <div class="date-column-timesheet  w-full">
+    <div #col class="flex justify-between border-b mt-2 pb-2">
+      <div class="flex bg-gray-100 rounded ml-2 ">
+        <h1 class="date ml-2 font-sans font-normal text-gray-500 text-sm font-medium" style="margin-top:0.75rem;"> {{item}}</h1>
+        <h1 class="date   font-sans text-xl font-normal text-gray-500 ml-2 font-bold  m-2">{{dates1}}</h1>
+      </div>
+      
+      <h3 class="hour mt-2 mr-2 font-sans text-base font-normal text-gray-500 font-bold">{{ totalHours }} Hrs</h3>
+    </div>
+    <div (click)="showFormDrawer()" class="cursor-pointer flex justify-center items-center border pt-2 pb-2 ml-2 mr-2">
+      <svg  class="text-green-600 text-xl" viewBox="64 64 896 896" focusable="false" fill="currentColor" width="1em" height="1em" data-icon="plus-circle" aria-hidden="true">
+        <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm192 472c0 4.4-3.6 8-8 8H544v152c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V544H328c-4.4 0-8-3.6-8-8v-48c0-4.4 3.6-8 8-8h152V328c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v152h152c4.4 0 8 3.6 8 8v48z"></path>
+      </svg>
+      <p class="text-lg ml-2 text-green-600">Add</p>
+     </div>
+
+     
+    
+        <div [id]="item" class="entries-overflow  entries-col">
+
+          <div (click)="scrollTimeEntriesUp(item)" class="hide-more cursor-pointer flex justify-center items-center  pt-2 pb-2 ml-2 mr-2">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6.61523 6.5866L0.244141 11.5729C0.167969 11.6315 0.125 11.7233 0.125 11.819L0.125 13.3288C0.125 13.4596 0.275391 13.5319 0.376953 13.4518L7 8.26824L13.623 13.4518C13.6461 13.4699 13.6737 13.4811 13.7028 13.4841C13.7319 13.4872 13.7613 13.482 13.7875 13.4692C13.8138 13.4563 13.836 13.4364 13.8514 13.4115C13.8669 13.3867 13.8751 13.358 13.875 13.3288V11.819C13.875 11.7233 13.8301 11.6315 13.7559 11.5729L7.38672 6.5866C7.1582 6.40886 6.8418 6.40886 6.61523 6.5866ZM6.61523 0.649097L0.244141 5.63543C0.167969 5.69402 0.125 5.78582 0.125 5.88152L0.125 7.39129C0.125 7.52214 0.275391 7.59441 0.376953 7.51433L7 2.33074L13.623 7.51433C13.6461 7.53237 13.6737 7.54356 13.7028 7.54662C13.7319 7.54969 13.7613 7.54451 13.7875 7.53167C13.8138 7.51884 13.836 7.49886 13.8514 7.47404C13.8669 7.44921 13.8751 7.42054 13.875 7.39129V5.88152C13.875 5.78582 13.8301 5.69402 13.7559 5.63543L7.38672 0.649097C7.1582 0.471363 6.8418 0.471363 6.61523 0.649097Z" fill="#595959"/>
+              </svg>
+            </div>
+            
+        <div #entries *ngFor="let timeEntry of timeEntries;let i=index" class="w-full">
+            <app-project-name-palet [timeEntry]="timeEntry"
+              [timesheetApproval]="timesheetApprovalForaProject(timeEntry.ProjectId)"
+              (projectNamePaletClicked)="onProjectNamePaletClicked($event)"
+              (paletEllipsisClicked)="onPaletEllipsisClicked($event)" 
+              (editClicked)="onEditButtonClicked($event)"
+              (deleteClicked)="onDeleteButtonClicked($event)" >
+            </app-project-name-palet>
+            {{checkOverflow(item)}}
+        </div>
+        
+        <!-- Scroll Button-->
+        <div (click)="scrollTimeEntriesUp(item)" class="hide-more cursor-pointer flex justify-center items-center  pt-2 pb-2 ml-2 mr-2">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7.38477 7.4134L13.7559 2.42707C13.832 2.36848 13.875 2.27668 13.875 2.18098V0.671214C13.875 0.540355 13.7246 0.468089 13.623 0.548167L7 5.73176L0.376953 0.548167C0.353925 0.530134 0.326286 0.518944 0.297197 0.515878C0.268109 0.512812 0.238746 0.517993 0.212462 0.530829C0.18618 0.543664 0.16404 0.563637 0.148573 0.588463C0.133105 0.613288 0.124937 0.641965 0.125 0.671214V2.18098C0.125 2.27668 0.169922 2.36848 0.244141 2.42707L6.61328 7.4134C6.8418 7.59114 7.1582 7.59114 7.38477 7.4134ZM7.38477 13.3509L13.7559 8.36457C13.832 8.30598 13.875 8.21418 13.875 8.11848L13.875 6.60871C13.875 6.47786 13.7246 6.40559 13.623 6.48567L7 11.6693L0.376953 6.48567C0.353925 6.46763 0.326286 6.45644 0.297197 6.45338C0.268109 6.45031 0.238746 6.45549 0.212462 6.46833C0.18618 6.48116 0.16404 6.50114 0.148573 6.52596C0.133105 6.55079 0.124937 6.57946 0.125 6.60871L0.125 8.11848C0.125 8.21418 0.169922 8.30598 0.244141 8.36457L6.61328 13.3509C6.8418 13.5286 7.1582 13.5286 7.38477 13.3509Z" fill="#595959"/>
+            </svg>
+          </div>
+      </div>
+
+    <div class="w-full grid justify-end lg:hidden" (click)="showFormDrawer()">
+      <svg class="stroke-current text-green-600 text-xl mb-4 mt-4 mr-4" viewBox="64 64 896 896" focusable="false"
+        fill="currentColor" width="1em" height="1em" data-icon="plus-circle" aria-hidden="true">
+        <path
+          d="M696 480H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8z">
+        </path>
+        <path
+          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z">
+        </path>
+      </svg>
+    </div>
+    
+    
+
+    <ng-template #contentTemplate>
+      <div *ngFor="let timeEntry of moreEntries ;let i = index;">
+        <ng-container>
+          <app-project-name-palet [timeEntry]="timeEntry" (projectNamePaletClicked)="onProjectNamePaletClicked($event)"
+            (paletEllipsisClicked)="onPaletEllipsisClicked($event)" (editClicked)="onEditButtonClicked($event)">
+          </app-project-name-palet>
+        </ng-container>
+      </div>
+    </ng-template>
+    <div #pt style="margin-bottom:0;"></div>
+  </div>
+</div>
+
+<!-- <i nz-icon nzType="plus-circle" nzTheme="outline"></i> -->
+
+

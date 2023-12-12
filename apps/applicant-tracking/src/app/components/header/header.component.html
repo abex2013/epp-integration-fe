@@ -1,0 +1,15 @@
+<header class="header-content">
+  <div class="logo my-2">
+    <img [src]="logoUrl" />
+  </div>
+  <ul class="menu-conatainer mx-5 my-2" nzTheme="light" nzMode="horizontal">
+    <div
+      *ngIf="user?.Token != null"
+      (click)="logout()"
+      class="flex flex-col cursor-pointer"
+    >
+      <app-avatar [url]="user.ProfileImage" icon="user" [size]="'large'"></app-avatar>
+      <div>Logout</div>
+    </div>
+  </ul>
+</header>

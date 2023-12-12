@@ -1,0 +1,21 @@
+<div class="p-3 pl-16 border-b-2 header-title"> 
+
+  <nz-layout class="inner-layout">
+  
+    <nz-sider [style.box-shadow]="{'box-shadow': 'inset -2px 0px 0px #DADADA'}"
+      nzWidth="228px" nzHight="715px" class="inner-side-bar" nzTheme="light">
+      <ul nz-menu nzMode="inline" class="sider-menu">
+        <li  nz-menu-item [nzSelected]='activePath("/users")'>
+          <i nz-icon nzType="user" nzTheme="outline"></i> <a [routerLink]="['/user-dashboard']" >Users</a>  
+        </li>
+        <li nz-menu-item [nzSelected]='activePath("/user/groups")'>
+          <i nz-icon nzType="group" nzTheme="outline"></i> <a [routerLink]="['/users/groups']" >Groups</a>  
+        </li>
+      </ul>
+    </nz-sider>
+  
+    <nz-content class="inner-content" nzWidth="978px" nzHeight="715px">
+      <router-outlet></router-outlet>
+    </nz-content>
+  </nz-layout>
+  

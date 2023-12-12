@@ -1,0 +1,15 @@
+<ng-container
+    class="exec-buttons-multiple-controls"
+    *ngIf="exMaxCount > 1"
+    >
+    <button nz-button
+        class="excel-link-button"
+        [hidden]="(exIndex === 0 && exCount === 1)"
+        [disabled]="(exIndex === 0 && exCount === 1)"
+        (click)="onRemove()">{{removeText}}</button>
+    <button nz-button
+        class="excel-link-button"
+        [hidden]="!(exIndex + 1 === exCount && exCount < exMaxCount)"
+        [disabled]="!(exIndex + 1 === exCount && exCount < exMaxCount)"
+        (click)="onAdd()">{{addText}}</button>
+</ng-container>

@@ -1,0 +1,48 @@
+<form nz-form class="form-group address-detail-form-group"
+[nzLayout]="'vertical'">
+  <exec-epp-custom-select
+    label="Country"
+    [myControl]="getControl('country')"
+    [list$]="countries$"
+    (formResponse)="onCountrySelect()">
+  </exec-epp-custom-select>
+  <exec-epp-custom-select
+    [label]="stateName"
+    [myControl]="getControl('state')"
+    [list$]="stateRegions$"
+    [required]="false"
+    (formResponse)="onStateSelect()">
+  </exec-epp-custom-select>
+  <exec-epp-custom-text-box
+    [label]="'City'"
+    [myControl]="getControl('city')"
+    [required]="true"
+    >
+  </exec-epp-custom-text-box>
+  <exec-epp-custom-text-box
+    [label]="subcityName"
+    [myControl]="getControl('subCityZone')"
+    [required]="true"
+    >
+  </exec-epp-custom-text-box>
+  <exec-epp-custom-text-box
+    [label]="weredaName"
+    [myControl]="getControl('woreda')"
+    [required]="false"
+    >
+  </exec-epp-custom-text-box>
+  <ng-container *ngIf="isEthiopia">
+    <exec-epp-custom-text-box
+    [label]="'House Number'"
+    [myControl]="getControl('houseNumber')"
+    [required]="false"
+    >
+  </exec-epp-custom-text-box>
+  </ng-container>
+  <exec-epp-custom-text-box
+    [label]="'Posta/Zip code'"
+    [myControl]="getControl('postalCode')"
+    [required]="false"
+    >
+  </exec-epp-custom-text-box>
+</form>

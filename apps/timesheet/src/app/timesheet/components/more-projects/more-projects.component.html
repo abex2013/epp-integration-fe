@@ -1,0 +1,20 @@
+<!--<p>more-projects works!</p>
+<button nz-button id="button-today" (click)="onDateColumnClicked()" >More</button>-->
+<div class="more-entry">more</div>
+<!--<div class="more-boxes">gggggg</div>-->
+<button nz-button [nzType]="'primary'" (click)="showModal()"><span>Show More</span></button>
+<nz-modal nzWidth='204px' [nzBodyStyle]="{height:'224px',  width: '204px',padding: '8px',
+  left: '2393px',
+  top: '31770px',
+  'border-radius': '2px',
+    'background-color':' rgba(0,0,0,0.5)',
+  'z-index': '2',
+  cursor: 'pointer',
+    background: '#FAFAFA',
+  'box-shadow': '0px 4px 4px rgba(0, 0, 0, 0.25)'
+  }" [nzFooter]=null [(nzVisible)]="isVisible" [nzClosable]=false (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+  <ng-container *nzModalContent>
+    <app-project-name-palet></app-project-name-palet>
+  </ng-container>
+
+</nz-modal>

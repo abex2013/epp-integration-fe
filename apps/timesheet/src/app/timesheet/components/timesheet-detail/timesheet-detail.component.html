@@ -1,0 +1,142 @@
+<div>
+    <app-date-selector [dates10]="firstday1 | date:'MMM d -' " [dates11]="lastday1 | date:'MMM d, y'"
+        class="sm:flex  sm:ml-8" (valueChange)='selectedDate($event)' (valueChangeNextWeek)="nextWeek($event)"
+        (valueChangeLastWeek)="lastastWeek($event)"></app-date-selector>
+
+    <div class=" {{ dateColumnContainerClass }} lg:flex xl:flex ml-2 mr-2 sm:ml-6 sm:mr-6">
+        <div *ngFor="let myD of weekDays" class="lg:w-96 xl:w-96">
+            <app-day-and-date-column [dates1]="myD | date:'dd'  " [item]="myD | date:'EEEE' " [date]="myD"
+                [timesheet]="(timesheet$ | async)"
+                [timeEntries]="(timeEntries$ | async)"
+                [timesheetApprovals]="(timesheetApprovals$ | async)"
+                (dateColumnClicked)="onDateColumnClicked($event, myD)"
+                (projectNamePaletClicked)="onProjectNamePaletClicked($event, myD)"
+                (paletEllipsisClicked)="onPaletEllipsisClicked($event, myD)"
+                (editButtonClicked)="onEditButtonClicked($event, myD)"
+                (deleteButtonClicked)="onDeleteButtonClicked($event, myD)">
+            </app-day-and-date-column>
+        </div>
+    </div>
+</div>
+
+<nz-drawer [nzVisible]="drawerVisible" [nzClosable]="false" [nzMask]="false">
+    <div *nzDrawerContent>
+        <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+            <div class="timesheet-date-range flex items-center ml-4 mt-6 w-full">
+                <div class="from-date-to-date">
+
+                    <label for="from-date">From Date:</label>
+                    <nz-date-picker [(ngModel)]="formData.fromDate" formControlName="fromDate"
+                        [nzDisabled]="disableFromDate" (ngModelChange)="onFormFromDateChange()" nzFormat="MM/dd/YYYY"
+                        nzSuffixIcon="" [nzDisabledDate]="disabledDates" class="w-24  rounded-none border-0 border-t-0">
+                    </nz-date-picker>
+                    <label for="to-date" class="ml-2">To Date:</label>
+                    <nz-date-picker [(ngModel)]="formData.toDate" formControlName="toDate" [nzDisabled]="disableToDate"
+                        (ngModelChange)="onFormToDateChange()" nzFormat="MM-dd-YYYY" nzSuffixIcon=""
+                        [nzDisabledDate]="disabledDates" class="w-24  rounded-none border-0 border-t-0">
+                    </nz-date-picker>
+
+                </div>
+                <i nz-icon nzType="close" nzTheme="outline" class="ml-8 cursor-pointer" (click)="closeFormDrawer()"></i>
+            </div>
+
+
+            <nz-divider></nz-divider>
+
+            <div class="timesheet-detail flex flex-col w-full">
+                <label for="client" id="client" class="mb-2 font-semibold">Client<span
+                        class="font-bold text-base text-red-500  ml-2">*</span></label>
+                <nz-select nzShowSearch nzAllowClear formControlName="client" [(ngModel)]="formData.client"
+                    [nzDisabled]="disableClient" (ngModelChange)="clientValueChange($event)"
+                    *ngIf="clients?.length else elseBlock">
+
+
+                    <nz-option ng-selected="client.label == formData.client" *ngFor="let client of clients"
+                        nzValue="{{ client.id }}" nzLabel="{{ client.name }}"></nz-option>
+                </nz-select>
+
+
+                <label for="project" id="project" class="mt-4 mb-2 font-semibold">Project<span
+                        class="font-bold text-base text-red-500  ml-2">*</span></label>
+                <nz-select nzShowSearch nzAllowClear formControlName="project" [(ngModel)]="formData.project"
+                    [nzDisabled]="disableProject" (ngModelChange)="projectValueChange($event)"
+                    *ngIf="projects?.length else elseBlock">
+
+
+                    <nz-option ng-selected="project.label == formData.project" *ngFor="let project of projects"
+                        nzValue="{{ project.id }}" nzLabel="{{ project.name }}"></nz-option>
+                </nz-select>
+
+                <ng-template #elseBlock>
+                    <nz-select nzDisabled>
+                        <nz-option></nz-option>
+                    </nz-select>
+                </ng-template>
+
+                <label for="hours" id="hours" class="mt-4 mb-2 font-semibold">Hours<span
+                        class="font-bold text-base text-red-500  ml-2">*</span></label>
+                <nz-form-item>
+                    <nz-form-control nzHasFeedback nzValidatingTip="Validating..." [nzErrorTip]="userErrorTpl">
+                        <input [(ngModel)]="formData.hours" nz-input formControlName="hours"
+                            placeholder="Please enter {{24-dateColumnTotalHour}} hours or less." type="number" min="1"
+                            max="{{24-dateColumnTotalHour}}" />
+                        <ng-template #userErrorTpl let-control>
+                            <ng-container *ngIf="formData.hours && formData.hours <=0 ">Time entry should not have less
+                                than or equal
+                                to 0 hours. Please enter more than 0 hours.</ng-container>
+                            <ng-container *ngIf="formData.hours && formData.hours > (24-dateColumnTotalHour) ">Time
+                                entry should not
+                                have more than 24 hours. Please enter {{24 - dateColumnTotalHour}} hours or less.
+                            </ng-container>
+                            <ng-container *ngIf="control>=24">Time entry should not have more than 24 hours. Please
+                                enter 24 hours or
+                                less.</ng-container>
+                        </ng-template>
+                    </nz-form-control>
+                </nz-form-item>
+
+                <label for="note" class="mt-4 mb-2 font-semibold">Note</label>
+                <textarea [(ngModel)]="formData.note" formControlName="note" nz-input rows="4">
+                    {{ formData.note }}
+                  </textarea>
+                <div class="save-and-clear">
+                    <button id="save" class="mt-6 font-bold" nz-button
+                        [disabled]="!formData.client || !formData.project ||!formData.hours || formData.hours <= 0 || formData.hours > (24-dateColumnTotalHour)">Save
+
+                    </button>
+                    <button id="clear" class="mr-6 font-bold" nz-button (click)="resetForm($event)"
+                        [disabled]="!formData.client && !formData.project &&!formData.hours && !formData.note">Clear
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</nz-drawer>
+
+<nz-modal [(nzVisible)]="modalVisible" nzTitle="Invalid Time Entries" [nzFooter]="null" [nzCentered]="true"
+    [nzClosable]="false" nzClassName="invalid-time-entry-modal">
+    <ng-container *nzModalContent>
+        <nz-table #invalidEntriesData [nzData]="invalidEntries??[]">
+            <thead>
+                <tr>
+                    <th>Time Entry Date</th>
+                    <th>Error Message</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let invalidEntry of invalidEntriesData.data">
+                    <td>{{ invalidEntry.Date.toDateString() }}</td>
+                    <td>{{ invalidEntry.Message }}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="2">Please enter valid time entries before saving time entry for a range.</th>
+                </tr>
+            </tfoot>
+        </nz-table>
+        <span class="flex justify-center">
+            <button nz-button nzType="primary" (click)="handleOk()">OK</button>
+        </span>
+    </ng-container>
+</nz-modal>

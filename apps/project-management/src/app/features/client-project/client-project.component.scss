@@ -1,0 +1,104 @@
+.main_container_homepage {
+  padding: 0px 2%;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+
+}
+
+
+::ng-deep .ant-table-thead>tr>th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
+  content: none;
+}
+
+
+::ng-deep .ant-tabs-content-holder {
+
+  font-family: SF Pro Display;
+
+}
+
+.page-title {
+
+
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+  /* or 140% */
+
+  display: flex;
+  align-items: center;
+
+  /* Body Text/ Shade 1 */
+
+  color: #262626;
+
+
+}
+
+
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+
+
+.tab-content {
+
+  height: 100vh;
+
+}
+
+::ng-deep .ant-btn:active,
+.ant-btn:focus,
+.ant-btn:hover {
+
+  background: none !important;
+
+}
+
+.ant-btn:not([disabled]):hover {
+
+  background: #00a551 !important;
+  color: white;
+}
+
+
+// ::ng-deep .ant-tabs>.ant-tabs-nav .ant-tabs-nav-list, .ant-tabs>div>.ant-tabs-nav .ant-tabs-nav-list {
+
+
+
+//   box-shadow: inset 0px -1px 0px #DADADA !important ;
+
+//   }
+
+
+::ng-deep .ant-tabs-ink-bar {
+
+  background-color: #00A551 !important;
+  color: black !important;
+}
+
+::ng-deep .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #00A551 !important;
+  font-size: 16px !important;
+}
+
+::ng-deep .ant-tabs-tab:hover {
+  color: #262626;
+}
+
+
+
+::ng-deep .ant-tabs-nav {
+  width: 1oovw !important;
+
+  font-size: 26px !important;
+}

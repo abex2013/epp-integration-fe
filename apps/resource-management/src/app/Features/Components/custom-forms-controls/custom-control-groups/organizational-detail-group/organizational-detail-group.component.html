@@ -1,0 +1,74 @@
+<form nz-form class="form-group organizational-detail-form-group"
+[nzLayout]="'vertical'">
+  <exec-epp-custom-select
+    label="Country"
+    [myControl]="getControl('country')"
+    [list$]="countries$">
+  </exec-epp-custom-select>
+  <exec-epp-custom-select
+    label="Duty Station"
+    [myControl]="getControl('dutyStation')"
+    [list$]="dutyStations$">
+  </exec-epp-custom-select>
+  <exec-epp-custom-email-multiple
+    label="Work Email Address"
+    [formArray]="getFormArray('companyEmail')"
+    [maxAmount]="1">
+  </exec-epp-custom-email-multiple>
+  <exec-epp-custom-phone-multiple
+    label="Work Phone Number"
+    [formArray]="getFormArray('phoneNumber')"
+    [maxAmount]="1">
+  </exec-epp-custom-phone-multiple>
+  <exec-epp-custom-select
+    label="Job Title"
+    [myControl]="getControl('jobTitle')"
+    [list$]="jobTitles$"
+    [required]="true">
+  </exec-epp-custom-select>
+  <exec-epp-custom-select
+    label="Business Unit"
+    [myControl]="getControl('businessUnit')"
+    [list$]="businessUnits$"
+    [required]="false">
+  </exec-epp-custom-select>
+  <exec-epp-custom-select
+    label="Department"
+    [myControl]="getControl('department')"
+    [list$]="departments$"
+    [required]="true">
+  </exec-epp-custom-select>
+  <exec-epp-custom-select
+    label="Reporting Manager"
+    [myControl]="getControl('reportingManager')"
+    [list$]="reportingManagers$"
+    [required]="true">
+  </exec-epp-custom-select>
+  <exec-epp-custom-select
+    label="Employement Type"
+    [myControl]="getControl('employeementType')"
+    [list$]="employementTypes$"
+    [required]="true"
+    (formResponse)="onEmployementTypeChange()">
+  </exec-epp-custom-select>
+  <exec-epp-custom-datepicker
+    [label]="'Joining Date'"
+    [myControl]="getControl('joiningDate')"
+    [endingDate]="joinigStartDate"
+    >
+  </exec-epp-custom-datepicker>
+  <ng-container *ngIf="isContract">
+    <exec-epp-custom-datepicker
+    [label]="'Termination Date'"
+    [myControl]="getControl('terminationDate')"
+    [startingDate]="terminationStartDate"
+    >
+  </exec-epp-custom-datepicker>
+  </ng-container>
+  <exec-epp-custom-select
+    label="Current Status"
+    [myControl]="getControl('status')"
+    [list$]="employementStatuses$"
+    [required]="true">
+  </exec-epp-custom-select>
+</form>

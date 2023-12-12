@@ -1,0 +1,27 @@
+<nz-form-item
+    class="form-item">
+    <nz-form-label
+      class="form-label"
+      [nzSm]="labelConfig.nzSm" 
+      [nzXs]="labelConfig.nzXs"
+      [nzRequired]="required">
+      {{label}}
+    </nz-form-label>
+    <nz-form-control
+    [nzSm]="controlConfig.nzSm" 
+    [nzXs]="controlConfig.nzXs"
+    [nzErrorTip]="errMessage"
+    nzHasFeedback>
+    <nz-select
+    class="excel-single-control"
+    [formControl]="myControl"
+    nzShowSearch
+    (ngModelChange)="onChange()">
+      <ng-container *ngFor="let choice of (list$ | async)">
+        <nz-option
+        [nzValue]="choice.value" [nzLabel]="choice.label">
+    </nz-option>
+      </ng-container>
+    </nz-select>
+    </nz-form-control>
+  </nz-form-item>

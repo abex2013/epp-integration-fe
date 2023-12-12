@@ -1,0 +1,31 @@
+.ant-menu-light .ant-menu-item-active, .ant-menu-light .ant-menu-item:hover, .ant-menu-light .ant-menu-submenu-active, .ant-menu-light .ant-menu-submenu-title:hover, .ant-menu-light .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open
+{
+    color: #262626;
+    background-color: #DCFFDC;
+}
+.ant-menu-inline .ant-menu-item::after, .ant-menu-vertical .ant-menu-item::after, .ant-menu-vertical-left .ant-menu-item::after, .ant-menu-vertical-right .ant-menu-item::after {
+    border-right: none;
+}
+.ant-menu-item-selected, .ant-menu-item-selected a, .ant-menu-item-selected a:hover, .ant-menu-item>.ant-badge a:hover {
+    color: #262626;
+    background-color: #DCFFDC;
+}
+.ant-menu-item:active, .ant-menu-submenu-title:active {
+    color: #262626;
+    background-color: #DCFFDC;
+}
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    color: #262626;
+    background-color: #DCFFDC;
+}
+// [nz-icon] {
+//     padding-right: 18.63px;
+// }
+input {
+    padding: 5.5px 12px;
+}
+
+.search button {
+    width: 40px;
+    height: 35px;
+}

@@ -1,0 +1,35 @@
+.excel-single-control {
+    width: 28rem !important;
+}
+
+.excel-phone-prefix-control {
+    width: 5rem !important;
+}
+
+.excel-phone-control {
+    width: 23rem !important;
+}
+
+.excel-form-label {
+    width: 28rem !important;
+}
+
+::ng-deep .ant-input-group-addon:last-child {
+    border: none !important;
+    background-color: rgba($color: #FFFFFF, $alpha: 0.0) !important;
+}
+
+.excel-link-button {
+    outline: 0 !important;
+    border: none !important;
+    background-color: rgba($color: #FFFFFF, $alpha: 0.0) !important;
+    color: #00A551 !important;
+}
+
+.excel-link-button:hover, .excel-link-button:focus {
+    color: rgb(0,255,0) !important;
+}
+
+.form-label {
+    min-width: 28rem !important;
+}

@@ -1,0 +1,33 @@
+body,
+* {
+  font-family: 'SF Pro Display';
+  background-color: #fff
+}
+
+nz-content {
+  padding: 0 120px;
+  width: 100%;
+}
+
+.inner-content-menu {
+  background: #fff;
+  height: auto;
+  padding: 0px 24px;
+
+}
+.main-content {
+  padding: 0px 24px;
+}
+
+.inner-content {
+
+  background: #fff;
+  height: auto;
+  float: left;
+  padding: 0;
+
+  // margin: 10px -117px;
+
+}
+
+

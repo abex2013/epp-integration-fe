@@ -1,0 +1,69 @@
+<button nz-button (click)="onAddNewRecord()" nzType="primary" class="createGroupButton">Create group</button>
+
+
+<nz-modal
+[(nzVisible)]="isVisible"
+[nzTitle]="modalTitle"
+[nzContent]="modalContent"
+[nzFooter]="modalFooter"
+(nzOnCancel)="handleCancel()"
+>
+<ng-template #modalTitle class="backChange"><h4>Create group</h4></ng-template>
+
+<ng-template #modalContent>
+ 
+  <form class="flex flex-col gap-5" [formGroup]="groupSet" (ngSubmit)="onSaveGroup()" #form>
+
+    <div nz-row>
+
+        <div nz-col nzSpan="24" class="forDes">
+          <!-- <p>When you create the group, you'll be able to add users
+              to it and configure its access or associate job positions
+              to let the system assign them automatically. </p> -->
+            <div class="label required">Group's name</div>
+            <nz-form-item>
+              <nz-form-control [formGroup]='groupSet' [nzSpan]="24" >
+                <input nz-input formControlName="Name" touched form="groupSet">
+                <span class="groupSetSpan">You won't be able to change the group's name in the future.</span>
+                <div *ngIf="groupSet.get('Name')?.invalid && (groupSet.get('Name')?.dirty || groupSet.get('Name')?.touched)"
+                    class="text-danger-error">
+                  <div *ngIf="(groupSet.get('Name')?.errors?.['required'])">
+                    Group's name is required.
+                  </div>
+                  <div *ngIf="groupSet.get('Name')?.errors?.['minlength'] && !(groupSet.get('Name')?.errors?.['required'])">
+                    Group's name must be at least 2 characters long.
+                  </div>
+                  <div *ngIf="groupSet.get('Name')?.errors?.['pattern'] && !(groupSet.get('Name')?.errors?.['minlength'])">
+                    Invalid Group's name.
+                  </div>
+                </div>
+
+              </nz-form-control>
+            </nz-form-item>
+        </div>
+    </div><br>
+    <div nz-row >
+      <div nz-col nzSpan="24" class="forDes">
+          <div class="label">Group's description (Optional)</div>
+          <nz-form-item>
+            <nz-form-control [formGroup]='groupSet' [nzSpan]="24">
+              <textarea 
+                nz-input
+                form="groupSet"
+                formControlName="Description" 
+              >
+              </textarea>
+              <span class="groupSetSpan">A description will help you organize and manage your groups.</span>
+            </nz-form-control>
+          </nz-form-item>
+      </div>
+    </div>
+</form>
+
+</ng-template>
+
+<ng-template #modalFooter>
+  <button nz-button nzType="default" class="defaultBtn" (click)="handleCancel()">Cancel</button>
+  <button nz-button nzType="primary" [disabled]="groupSet.invalid" (click)="onSaveGroup()">Create Group</button>
+</ng-template>
+</nz-modal>

@@ -1,0 +1,55 @@
+.line-container {
+    margin-left: 1rem;
+}
+.line-container-sm {
+    margin-right: 0.5rem;
+}
+
+.link-button {
+  font-weight: 400;
+  line-height: 24px;
+  size: 16px;
+}
+
+nz-select {
+  width: 100%;
+}
+nz-modal {
+    font-family: SF Pro Display;
+}
+//styleName: Body Text 1/Regular/16;
+.label, .label-sm {
+  font-style: normal;
+  line-height: 24px;
+  letter-spacing: 0em;
+  margin-bottom: 0.2rem;
+}
+.label, .label-sm {
+    font-size: 16px;
+}
+.label-sm {
+    font-size: smaller;
+}
+
+  
+.muted {
+    color: #777;
+}
+.gutter-row {
+  margin-left: 1rem;
+}
+.col-pad {
+    margin-left: 0.5rem;
+}
+.gutter-row-inner {
+    margin-left: 0.2rem;
+  }
+input {
+    width: 160px;
+}
+.ant-input-group-addon  {
+    padding: 0;
+}
+.checkbox-small {
+    font-size: smaller;
+}

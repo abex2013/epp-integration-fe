@@ -1,0 +1,108 @@
+<form class="w-full max-w-4xl" nz-form [nzLayout]="'vertical'" [formGroup]="validateForm">
+  <nz-form-item>
+    <nz-form-label [nzSpan]="6" nzFor="salesPerson" [nzSm]="24">Salesperson &nbsp;
+  <svg
+    width="8"
+    height="7"
+    viewBox="0 0 8 7"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M3.09375 3.90625L0.710938 3.21875L1.14062 1.89844L3.5 2.8125L3.38281 0.125H4.78125L4.66406 2.85938L6.98438 1.96094L7.40625 3.30469L4.98438 3.99219L6.54688 6.07031L5.41406 6.89844L4.00781 4.64844L2.61719 6.82812L1.47656 6.03125L3.09375 3.90625Z"
+      fill="#F52121"
+    />
+  </svg>
+</nz-form-label>
+
+  <nz-form-control [nzSm]="10" [nzXs]="24" nzHasFeedback nzErrorTip="Please select a salse Person!"  >
+
+    <nz-select (click)="handleError()" nzShowSearch nzAllowClear
+
+      id="salesPerson"
+      formControlName="salesPerson"
+      nzPlaceHolder="Please type sales person's name"
+
+    >
+
+    <nz-option   *ngFor="let employee of employees"   nzLabel={{employee.Name}}-{{employee.Role}}  [nzValue]="employee"   ></nz-option>
+
+    </nz-select>
+
+  </nz-form-control>
+
+</nz-form-item >
+
+<nz-form-item>
+    <nz-form-label class="" [nzSm]="6" [nzXs]="24" nzFor="clientName"
+      >Client Name &nbsp;
+      <svg
+        width="8"
+        height="7"
+        viewBox="0 0 8 7"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3.09375 3.90625L0.710938 3.21875L1.14062 1.89844L3.5 2.8125L3.38281 0.125H4.78125L4.66406 2.85938L6.98438 1.96094L7.40625 3.30469L4.98438 3.99219L6.54688 6.07031L5.41406 6.89844L4.00781 4.64844L2.61719 6.82812L1.47656 6.03125L3.09375 3.90625Z"
+          fill="#F52121"
+        /></svg
+    ></nz-form-label>
+    <nz-form-control [nzSm]="10" [nzXs]="24">
+      <input
+        placeholder="Please enter client's name"
+        nz-input
+        formControlName="clientName"
+        id="clientName"
+        (keyup)="checkClientName()"
+        [ngClass]="{'border-red ,border-none' : clientNameExistErrorMessage}"
+      />
+      <span *ngIf="!clientName.valid && (clientName.touched )" class="error-block" >
+        <span *ngIf="clientName.hasError('required')" >
+          Client's name is required
+        </span>
+        <span *ngIf="clientName.errors?.maxlength">
+          Client name should not be more than 70 character
+        </span>
+        <span *ngIf="clientName.errors?.minlength">
+          Client name should not be lesser than 2 character
+        </span>
+      </span>
+      <span *ngIf="clientNameExistErrorMessage!==''" style="color: red" >
+        {{clientNameExistErrorMessage}}
+      </span>
+    </nz-form-control>
+
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label nzFor="status">Status </nz-form-label>
+    <nz-form-control [nzSm]="10">
+      <nz-select
+        [(ngModel)]="selectedValue"
+        [ngModelOptions]="{ standalone: true }"
+        nzDisabled
+      >
+        <nz-option
+        *ngFor="let option of clientStatuses"
+          [nzLabel]="option.StatusName"
+          [nzValue]="option.Guid"
+        ></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item nz-col nzSpan="10">
+    <nz-form-label>About the client</nz-form-label>
+    <nz-form-control>
+        <textarea
+        rows="4"
+        formControlName="description"
+        nz-input placeholder="A maximum of 250 characters">
+      </textarea>
+      <span *ngIf="description.errors?.maxlength" style="color: red">
+        About the client should not be more than 250 characters
+      </span>
+    </nz-form-control>
+  </nz-form-item>
+</form>

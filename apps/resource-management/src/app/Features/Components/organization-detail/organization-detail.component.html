@@ -1,0 +1,172 @@
+<div class="page-title">
+    <h2>Organization Detail</h2>
+</div>
+<form nz-form [formGroup]="emloyeeOrganizationForm">
+    <div class="control-padding" nz-row [nzGutter]="[8]" >
+        <div nz-col class="gutter-row" [nzSpan]="6">
+            <nz-form-label nzFor="country" nzRequired>Country</nz-form-label>
+        </div>
+        <div nz-col class="gutter-row" [nzSpan]="6">
+            <nz-form-label for="dutybranch" nzRequired >Duty branch</nz-form-label>
+        </div>
+        <div nz-col class="gutter-row" [nzSpan]="6">
+            <nz-form-label for="compaynemail" nzRequired>Company email</nz-form-label>
+        </div>
+        <div nz-col class="gutter-row" [nzSpan]="6">
+            <nz-form-label for="compaynemail" nzRequired>Phone number</nz-form-label>
+        </div>
+        <div nz-col class="gutter-row" [nzSpan]="6">
+            <nz-form-control  [nzErrorTip]="errorDutyBranch">
+                <nz-select formControlName="dutyStation" nzPlaceHolder="Select" (ngModelChange)="loadDutyBranch($event)">
+                    <nz-option *ngFor="let country of countries" [nzLabel]="country.name" [nzValue]="country.id">
+                    </nz-option>
+                </nz-select>
+                <ng-template  #errorDutyBranch let-control>
+                    <ng-container *ngIf="control.hasError('required')">Please select employee's duty station</ng-container>
+                </ng-template>
+            </nz-form-control>
+            
+        </div>
+        <div nz-col class="gutter-row" [nzSpan]="6">
+            <nz-form-control [nzErrorTip]="errorDutyBranch"> 
+                <nz-select formControlName="dutyBranch" >
+                    <nz-option *ngFor="let dutyBranch of dutyBranches" [nzLabel]="dutyBranch.name" [nzValue]="dutyBranch.id">
+                    </nz-option>
+                </nz-select>
+                <ng-template  #errorDutyBranch let-control>
+                    <ng-container *ngIf="control.hasError('required')">Please select employee's duty branch</ng-container>
+                </ng-template>
+            </nz-form-control>
+        </div>
+        <div nz-col class="gutter-row" [nzSpan]="6">
+            <nz-form-control  [nzErrorTip]="errorCompanyEmail">
+                <input type="text" nz-input formControlName="companyEmail"  placeholder="Company email" id="companyEmail"/>
+                <ng-template  #errorCompanyEmail let-control>
+                    <ng-container *ngIf="control.hasError('pattern')">Please enter a valid email address</ng-container>
+                    <ng-container *ngIf="control.hasError('required')">Please enter email address</ng-container>
+                </ng-template>
+            </nz-form-control>
+        </div>
+        <div nz-col class="gutter-row" [nzSpan]="6">
+            <nz-form-control [nzErrorTip]="errorPhoneNumber">
+                <input type="text" formControlName="phoneNumber" maxlength="15" id="'phoneNumber'" nz-input />
+                <ng-template  #errorPhoneNumber let-control>
+                    <ng-container *ngIf="control.hasError('pattern')">Please enter a valid phone number</ng-container>
+                    <ng-container *ngIf="control.hasError('required')">Please enter employee's phone number</ng-container>
+                </ng-template>
+            </nz-form-control>
+        </div>
+    </div>
+    <div class="control-padding" nz-row [nzGutter]="[8]" style="margin-top:-20px">
+        <div nz-col class="gutter-row" [nzSpan]="6">
+            <nz-form-label nzFor="jobtitle" nzRequired>Job title</nz-form-label>
+        </div>
+        <div nz-col class="gutter-row" [nzSpan]="6">
+            <nz-form-label nzFor="businesstitle" nzRequired>Business title</nz-form-label>
+        </div>
+        <div nz-col class="gutter-row" [nzSpan]="6">
+            <nz-form-label for="department" nzRequired>Department</nz-form-label>
+        </div>
+        <div nz-col class="gutter-row" [nzSpan]="6">
+            <nz-form-label for="reportingmanager" nzRequired>Reporting manager</nz-form-label>
+        </div>
+        <div nz-col class="gutter-row" [nzSpan]="6">
+            <nz-form-control  [nzErrorTip]="errorJobTitle">
+                <input formControlName="jobtitle" nz-input placeholder="Job Title" id="jobtitle"/>
+                <ng-template #errorJobTitle let-control>
+                    <ng-container *ngIf="control.hasError('required')">Please enter employee's job title</ng-container>
+                </ng-template>
+        </nz-form-control>
+        </div>
+        <div nz-col class="gutter-row" [nzSpan]="6">
+            <nz-form-control [nzErrorTip]="errorBusinessTtitle">
+                <input formControlName="businessunit" nz-input placeholder="Business title" id="businesstitle"/>
+                <ng-template #errorBusinessTtitle let-control>
+                    <ng-container *ngIf="control.hasError('required')">Please enter employee's business title</ng-container>
+                </ng-template>
+            </nz-form-control>
+        </div>
+        <div nz-col class="gutter-row" [nzSpan]="6">
+            <nz-form-control [nzErrorTip]="errordepartment">
+                <input formControlName="department" nz-input placeholder="Department"/>
+                <ng-template #errordepartment let-control>
+                    <ng-container *ngIf="control.hasError('required')">Please enter employee's department</ng-container>
+                </ng-template>
+            </nz-form-control>
+        </div>
+        <div nz-col class="gutter-row" [nzSpan]="6">
+            <nz-form-control [nzErrorTip]="errorReportingManager">
+                <input formControlName="reportingmanager" nz-input placeholder="Reporting manager"/>
+                <ng-template #errorReportingManager let-control>
+                    <ng-container *ngIf="control.hasError('required')">Please enter employee's reporting manager</ng-container>
+                </ng-template>
+            </nz-form-control>
+            <!-- <nz-select nzMode="multiple" nzPlaceHolder="Search Reporting Manager" nzAllowClear nzShowSearch
+                nzServerSearch formControlName="selectedReportingManager" (nzOnSearch)="onSearch($event)">
+                <ng-container *ngFor="let reportingmanager of reportingManagerList">
+                    <nz-option *ngIf="!isLoading" [nzValue]="reportingmanager" [nzLabel]="reportingmanager"></nz-option>
+                </ng-container>
+                <nz-option *ngIf="isLoading" nzDisabled nzCustomContent>
+                    <i nz-icon nzType="loading" class="loading-icon"></i>
+                    Loading Data...
+                </nz-option>
+            </nz-select> -->
+        </div>
+    </div>
+    <div class="control-padding" nz-row [nzGutter]="[8]" style="margin-top:-20px">
+        <div nz-col class="gutter-row" [nzSpan]="6">
+            <nz-form-label for="employmenttype" nzRequired>Employment type</nz-form-label>
+        </div>
+        <div nz-col class="gutter-row" [nzSpan]="6">
+            <nz-form-label for="joiningdate" nzRequired>Joining date</nz-form-label>
+        </div>
+        <div nz-col class="gutter-row" [nzSpan]="6">
+            <nz-form-label for="terminationdate">Termination date</nz-form-label>
+        </div>
+        <div nz-col class="gutter-row" [nzSpan]="6">
+            <nz-form-label for="status" nzRequired>Status</nz-form-label>
+        </div>
+        <div nz-col class="gutter-row" [nzSpan]="6">
+            <nz-form-control [nzErrorTip] = "errorEmploymentType">
+                <nz-select formControlName="employmentType" (ngModelChange)="ValidateEmploymentType($event)">
+                    <nz-option *ngFor="let employmenttype of employmnetTypeKey(employmentTypes); index as i" 
+                    [nzLabel]="employmenttype"  [nzValue]="employmenttype">
+                    </nz-option>
+                </nz-select>
+                <ng-template #errorEmploymentType let-control>
+                    <ng-container *ngIf="control.hasError('required')">Please select employee's employment type</ng-container>
+                </ng-template>
+            </nz-form-control>
+        </div>
+        <div nz-col class="gutter-row" [nzSpan]="6">
+            <nz-form-control [nzErrorTip]="errorjoiningdate">
+                <nz-date-picker formControlName="joiningdate" [nzFormat]="dateFormat" [nzPlaceHolder]="dateFormat"></nz-date-picker>
+                <ng-template #errorjoiningdate let-control>
+                    <ng-container *ngIf="control.hasError('required')">Please pick employee's joining date</ng-container>
+                    <ng-container *ngIf="control.errors?.isFutureDate">You picked a futrue date. Please pick a valid date</ng-container>
+                </ng-template>
+            </nz-form-control>
+        </div>
+        <div nz-col class="gutter-row" [nzSpan]="6">
+            <nz-form-control [nzErrorTip]="errorterminationdate">
+                <nz-date-picker formControlName="terminationdate" [nzFormat]="dateFormat" [nzPlaceHolder]="dateFormat"></nz-date-picker>
+                <ng-template #errorterminationdate let-control>
+                    <ng-container *ngIf="control.hasError('required')">Please pick employee's termination date</ng-container>
+                    <ng-container *ngIf="control.errors?.isFutureDate">You picked a futrue date. Please pick a valid date</ng-container>
+                </ng-template>
+            </nz-form-control>
+        </div>
+        <div nz-col class="gutter-row" [nzSpan]="6">
+            <nz-form-control [nzErrorTip]="errorStatus">
+                <nz-select formControlName="status" (ngModelChange)="ValidateStatus($event)">
+                    <nz-option *ngFor="let status of statusKey(statuses); index as i" [nzLabel]="status" [nzValue]="status">
+                    </nz-option>
+                </nz-select>
+                <ng-template #errorStatus let-control>
+                    <ng-container *ngIf="control.hasError('required')">Please select employee's current status</ng-container>
+                </ng-template>
+            </nz-form-control>
+        </div>
+    </div>
+</form>
+<app-progress-buttons [isMultiple]="false" (actionType)="action($event)"></app-progress-buttons>

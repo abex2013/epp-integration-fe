@@ -1,0 +1,31 @@
+<ng-container *ngFor="let phoneControl of formArray.controls; let i = index;">
+  <nz-form-item class="form-item">
+    <nz-form-label class="form-label" [nzSm]="labelConfig.nzSm" [nzXs]="labelConfig.nzXs" [nzRequired]="required"
+      [hidden]="i > 0">
+      {{label}}
+    </nz-form-label>
+    <nz-form-control [nzSm]="controlConfig.nzSm" [nzXs]="controlConfig.nzXs" [nzErrorTip]="errMessages[i]"
+      nzHasFeedback>
+      <nz-input-group [nzAddOnBefore]="prefixTemplate" [nzAddOnAfter]="suffixTemplate">
+        <input class="excel-phone-control" [formControl]="getControl(i)" nzPlaceHolder="Smith" (ngModelChange)="onChange(i)"
+          nz-input />
+        <ng-template #prefixTemplate>
+          <nz-select class="excel-phone-prefix-control" [formControl]="getPrefixControl(i)"
+          nzShowSearch >
+            <nz-option *ngFor="let choice of (prefices$ | async)" [nzValue]="choice.value"
+              [nzLabel]="choice.label">
+            </nz-option>
+          </nz-select>
+        </ng-template>
+        <ng-template #suffixTemplate [hidden]="(maxAmount === 1)">
+          <excel-buttons-multiple-controls
+            [exMaxCount]="maxAmount"
+            [exCount]="formArray.length"
+            [exIndex]="i"
+            (exResponse)="onAddRemove($event)"
+            ></excel-buttons-multiple-controls>
+        </ng-template>
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+</ng-container>

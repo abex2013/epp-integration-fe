@@ -1,0 +1,39 @@
+<form nz-form class="form-group personal-detail-form-group"
+[nzLayout]="'vertical'">
+  <exec-epp-custom-upload></exec-epp-custom-upload>
+  <exec-epp-custom-employee-id-number
+    [formGroup]="getFormGroup('employeeIdNumber')">
+  </exec-epp-custom-employee-id-number>
+
+  <exec-epp-custom-full-name [formGroup]="getFormGroup('fullName')" >
+  </exec-epp-custom-full-name>
+  <exec-epp-custom-select
+    [label]="'Gender'"
+    [myControl]="getControl('gender')"
+    [required]="true"
+    [list$]="genders$">
+  </exec-epp-custom-select>
+  <exec-epp-custom-datepicker
+    [label]="'Date of Birth'"
+    [myControl]="getControl('dateofBirth')"
+    [required]="true"
+    [endingDate]="birthEndDate"
+    >
+  </exec-epp-custom-datepicker>
+
+  <exec-epp-custom-email-multiple
+    [formArray]="getFormArray('emailAddresses')"
+    [maxAmount]="maxEmailQty">
+  </exec-epp-custom-email-multiple>
+
+  <exec-epp-custom-phone-multiple
+    [formArray]="getFormArray('phoneNumbers')"
+    [maxAmount]="maxPhoneQty">
+  </exec-epp-custom-phone-multiple>
+  <exec-epp-custom-select-multiple
+    [myControl]="getControl('nationalities')"
+    [list$]="nationalities$"
+    [maxChoices]="maxNationality"
+    >
+  </exec-epp-custom-select-multiple>
+</form>

@@ -1,0 +1,163 @@
+::ng-deep .ant-tabs-nav {
+  width: 266px !important;
+
+  font-size: 26px !important;
+}
+
+::ng-deep .ant-tabs-tab-btn {
+  color: #8c8c8c;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+::ng-deep .ant-form-item-label {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.createButton {
+  background: #00a551;
+  border-color: #00a551;
+  border-radius: 5%;
+  color: white;
+}
+
+
+
+
+
+.createButton :hover{
+
+  background-color:rgb(red, green, blue);
+
+
+}
+
+
+
+.redAstrics {
+  color: #f52121;
+  margin-bottom: 5px;
+}
+
+.page-title {
+  font-family: -apple-system, system-ui, BlinkMacSystemFont;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+
+  color: #262626;
+}
+
+.tab-content {
+  padding:0px 20px 25px;
+  height: 109vh;
+
+}
+*{
+  font-family: -apple-system, system-ui, BlinkMacSystemFont;
+
+ }
+nz-tab {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+
+
+
+
+
+ 
+
+  ::ng-deep .ant-tabs-tab {
+    color: #363636 !important;
+
+  }
+ 
+
+  
+::ng-deep .ant-tabs>.ant-tabs-nav .ant-tabs-nav-list, .ant-tabs>div>.ant-tabs-nav .ant-tabs-nav-list {
+
+ box-shadow: inset -2px 0px 0px #DADADA !important;
+
+  }
+
+  ::ng-deep .ant-tabs-nav-scroll {
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+ 
+  ::ng-deep .ant-tabs-tab:hover {
+    color: #595959 !important;
+  }
+
+  ::ng-deep ant-tabs-tab.ant-tabs-tab-active {
+    background: #DCFFDC !important;
+  }
+
+
+  
+ ::ng-deep .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+
+  font-size: 16px !important;
+  font-weight: 500 !important;;
+
+  display: flex !important;;
+  align-items: center !important;;
+
+  color: #595959 !important;
+}
+ 
+
+
+
+
+
+
+
+
+
+::ng-deep .ant-tabs>.ant-tabs-nav .ant-tabs-nav-list, .ant-tabs>div>.ant-tabs-nav .ant-tabs-nav-list {
+
+  
+  box-shadow: inset 0px -1px 0px #DADADA !important ;
+
+  }
+
+
+::ng-deep .ant-tabs-ink-bar {
+  color:#595959 !important;
+  background-color:#000000 !important;
+}
+
+::ng-deep .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color:#595959 !important;
+  font-size: 16px !important;
+
+}
+::ng-deep .ant-tabs-tab:hover {
+  color: #262626 ;
+}
+/* ::ng-deep .ant-btn :hover {
+
+  background-color: red;
+
+  color:white;
+
+} */
+::ng-deep .ant-btn:active, .ant-btn:focus, .ant-btn:hover {
+
+  background:none !important;
+
+}
+.ant-btn:not([disabled]):hover {
+
+  background: #00a551 !important;
+  color: white;
+}

@@ -1,0 +1,42 @@
+/*approved*/
+div.is-blue {
+  background: #E6F7FF;
+  color: #1890FF;
+  border:1px solid #91D5FF;
+  text-align: center;
+}
+div.is-yellow {
+  background: #FFFBE6;
+  color: #FAAD14;
+  border:1px solid #FFE58F;
+  text-align: center;
+}
+
+div.is-green {
+  background: #F6FFED;
+  color: #52C41A;
+  border:1px solid #B7EB8F;
+  text-align: center;
+}
+::ng-deep .nz-table-content {
+  border:1px solid #FFE58F;
+}
+::ng-deep .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #00A551;
+}
+::ng-deep .ant-tabs-ink-bar {
+  background-color: #00A551 !important;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.manager-table {
+  border:1px solid #e6e5e3;
+  border-radius: 5px;
+  margin-left: 3%;
+  margin-right: 3%;
+  margin-bottom: 1%;
+}
+

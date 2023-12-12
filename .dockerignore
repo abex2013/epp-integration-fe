@@ -1,0 +1,6 @@
+# Ignore files not needed to build docker image
+.editorconfig
+.git*
+libs
+node_modules
+README.md

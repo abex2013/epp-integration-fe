@@ -1,0 +1,81 @@
+<nz-card class="card-view">
+  <div class="title">Sign up</div>
+  <form [formGroup]="signUpForm" (ngSubmit)="signup()">
+    <app-input
+      [form]="signUpForm"
+      fcn="firstName"
+      name="first-name"
+      type="text"
+      #firstname
+      label="First Name"
+      placeholder="Enter your first name"
+      errorMsg="Please provide first name."
+      [displayError]="firstname.focusout"
+    ></app-input>
+    <app-input
+      [form]="signUpForm"
+      fcn="lastName"
+      name="last-name"
+      type="text"
+      #lastname
+      label="Last Name"
+      placeholder="Enter your last name"
+      errorMsg="Please provide last name."
+      [displayError]="lastname.focusout"
+    ></app-input>
+    <app-input
+      [form]="signUpForm"
+      fcn="email"
+      name="email"
+      type="email"
+      #email
+      label="Email"
+      placeholder="example@email.com"
+      errorMsg="Please provide a valid email address."
+      [displayError]="email.focusout"
+    ></app-input>
+    <app-input
+      [form]="signUpForm"
+      fcn="password"
+      name="password"
+      [type]="showPassword ? 'text' : 'password'"
+      #password
+      label="Password"
+      [suffixIcon]="passwordSuffixIcon"
+      placeholder="Enter your password"
+      [showErrorIcon]="false"
+      errorMsg="Password must be atleast 8 characters long and contain either a number or special character."
+      [displayError]="password.focusout"
+    ></app-input>
+    <app-input
+      [form]="signUpForm"
+      fcn="confirmPassword"
+      name="confirm-password"
+      type="password"
+      #confirmpassword
+      label="Confirm Password"
+      placeholder="Confirm your password"
+      errorMsg="Confirm password should match password field."
+      [displayError]="confirmpassword.focusout"
+      [disablePaste]="true"
+    ></app-input>
+
+    <app-button [loading]="loading" [disabled]="!signUpForm.valid" type="primary">
+      Sign up
+    </app-button>
+  </form>
+
+  <ng-template #passwordSuffixIcon>
+    <i
+      class="clickable-icon"
+      (click)="togglePasswordView()"
+      nz-icon
+      [nzType]="!showPassword ? 'eye-invisible' : 'eye'"
+      nzTheme="outline"
+    ></i>
+  </ng-template>
+  <div class="info">
+    Already have an account?
+    <a [routerLink]="['/user']"> Sign In </a>
+  </div>
+</nz-card>

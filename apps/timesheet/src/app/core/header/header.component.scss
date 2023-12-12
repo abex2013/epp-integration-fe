@@ -1,0 +1,42 @@
+.main-header {
+  display: flex;
+  /*width: 1440px;*/
+  height: 60px;
+  background-color: #FFFFFF;
+  box-shadow: 0 1px 15px 0 rgb(0 0 0 / 12%), 0 10px 10px 0 rgb(0 0 0 / 1%);
+
+  .nav-image {
+    width: 34px;
+    height: 34px;
+
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin-left: 24px;
+    padding: 6px;
+  }
+
+  .logo-container {
+    width: 174px;
+    height: 34px;
+
+    margin-top: 8px;
+    margin-bottom: 8px;
+    a{
+      display: inline-flex;
+    }
+    .logo {
+      width: 65px;
+      height: 22px;
+
+      margin-top: 6px;
+      margin-bottom: 6px;
+    }
+
+    .logo-desc {
+      width: 103px;
+      height: 34;
+
+      margin-left: 6px;
+    }
+  }
+}

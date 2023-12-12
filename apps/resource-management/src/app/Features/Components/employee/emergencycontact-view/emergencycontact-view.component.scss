@@ -1,0 +1,145 @@
+.addButton {
+  background-color: #00a551;
+  color: white;
+  height: 40px;
+  width: 200px;
+  justify-content: center;
+}
+
+.addButtonwhenNodata {
+  background-color: #00a551;
+  color: white;
+  height: 40px;
+  display: flex;
+  margin-left: 520px;
+  margin-top: -45px;
+  width: 200px;
+  justify-content: center;
+}
+
+.editable-cell {
+  position: relative;
+  padding: 5px 12px;
+  cursor: pointer;
+}
+
+.editable-row:hover .editable-cell {
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  padding: 4px 11px;
+}
+
+.table {
+  width: 3000px;
+  border: 1px solid #dadada;
+  background: #ffffff;
+
+
+
+
+}
+
+.tr {
+  border-top: 2px solid #dadada;
+  border-radius: 4px 4px 4px 4px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  background: #ffffff;
+  width: 552.86px;
+}
+
+.inner-content {
+  background: #fff;
+  height: auto;
+  float: left;
+  padding: 24px;
+
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+.addeButton {
+  background-color: #00A551;
+  font-weight: 500;
+
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+.cancelButton {
+  background-color: #fff;
+
+  border: 1px solid #00A551;
+  font-weight: 500;
+  color: #00A551;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+.ant-modal-content {
+  position: relative;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 0;
+  border-radius: 2px;
+  pointer-events: auto;
+  width: 700px;
+}
+
+.saveButton {
+  background-color: #00A551;
+  font-weight: 500;
+  margin-left: 1px;
+  float: right;
+  margin-right: 40px;
+  top: 6px;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+
+
+
+::ng-deep.ant-tabs-tab:hover {
+  background-color: #DCFFDC;
+  color: #262626;
+}
+
+::ng-deep.ant-tabs-tab.ant-tabs-tab-active {
+  color: #262626;
+  text-shadow: 0 0 .25px currentColor;
+  background-color: #DCFFDC;
+}
+
+::ng-deep.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #262626;
+  text-shadow: 0 0 .25px currentColor;
+}
+
+.overflow-scroll {
+  max-height: 350px;
+  overflow-y: scroll;
+}
+
+.ant-modal-content {
+  position: relative;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 0;
+  border-radius: 2px;
+  pointer-events: auto;
+  max-width: 56rem !important;
+}
+
+.layer {
+  position: fixed;
+  opacity: 0.7;
+  left: 0 px;
+  top: 0 px;
+  width: 100% ;
+  height: 100% ;
+  z-index:999999;
+  background-color:#BEBEBE;
+  display: none;
+  cursor: not-allowed;
+}

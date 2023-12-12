@@ -1,0 +1,38 @@
+<nz-form-item class="form-item-container">
+  <div class="label" nzRequired>{{ label }}</div>
+  <div [formGroup]="form" class="w-full">
+    <nz-form-control nzHasFeedback  [nzErrorTip]="displayError ? errorMsg : ''">
+      <nz-input-group [nzAddOnBefore]="addOnBeforeTemplate">
+        <input
+          [formControlName]="fcn"
+          [type]="type"
+          nz-input
+          [placeholder]="placeholder"
+          (focusout)="onfocustout()"
+          (focus)="onfocus()"
+        />
+      </nz-input-group>
+    </nz-form-control>
+  </div>
+</nz-form-item>
+
+<ng-template #addOnBeforeTemplate>
+  <nz-select
+    style="width: auto; min-width: 80px"
+    [(ngModel)]="selectedValue"
+    [compareWith]="compareFn"
+    (ngModelChange)="log($event)"
+    nzPlaceHolder="Choose"
+    nzShowSearch
+  >
+    <nz-option
+      *ngFor="let option of optionList"
+      [nzValue]="option"
+      [nzLabel]="option.dial_code"
+      nzCustomContent
+      
+    >
+      {{ option.dial_code }}
+    </nz-option>
+  </nz-select>
+</ng-template>

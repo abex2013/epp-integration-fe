@@ -1,0 +1,21 @@
+<div class="main-container mb-1">
+  <nz-page-header>
+    <nz-page-header-title>
+      <nz-breadcrumb nz-page-header-breadcrumb>
+        <nz-breadcrumb-item>
+          <a href="/">Home</a>
+        </nz-breadcrumb-item>
+        <ng-container *ngFor="let link of links">
+          <nz-breadcrumb-item>
+            <a [href]="link.url">{{ link.name }}</a>
+          </nz-breadcrumb-item>
+        </ng-container>
+      </nz-breadcrumb>
+      <div>{{ title }}</div>
+    </nz-page-header-title>
+
+    <nz-page-header-extra>
+      <ng-content></ng-content>
+    </nz-page-header-extra>
+  </nz-page-header>
+</div>

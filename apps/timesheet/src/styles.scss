@@ -1,0 +1,141 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import "~ng-zorro-antd/ng-zorro-antd.min.css";
+
+/* For Very small screen size. eg. Mobile*/
+.ant-drawer-content-wrapper {
+  width: 400px!important;
+  margin-top: 3.8rem;
+  border-top-left-radius: 15px;
+  width: inherit!important;
+
+  .ant-drawer-body {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/* For medium and big screen sizes like Tab and Desktop*/
+@media screen and (min-width: 640px) {
+	.ant-drawer-content-wrapper {
+    margin-top: 9.5rem;
+    border-top-left-radius: 15px;
+    background-color: #FFFFFF;
+
+    width: 400px!important;
+
+    .ant-drawer-body {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+}
+
+.ant-drawer-content {
+  border-top-left-radius: 15px;
+}
+
+.ant-popover-inner-content {
+  padding: 0;
+}
+
+#edit:hover {
+  background-color: #DCFFDC;
+  border-radius: 2px 2px 0 0;
+}
+
+#delete:hover {
+  background-color: #DCFFDC;
+  border-radius: 0 0 2px 2px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .ant-popover-inner {
+    flex-direction: row !important;
+    width: 800px !important;
+    justify-content: top;
+    position: fixed;
+    margin-left: -0px;
+  }
+}
+
+.delete-conform-modal{
+
+  width: 328px !important;
+
+  .ant-modal-content {
+    border: 0.5px solid #00A551;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    width: 328px;
+    height: 220px;
+    background: #FFFFFF;
+    align-self: center;
+    justify-self: center;
+  }
+
+  .ant-modal-body {
+    font-family: SF Pro Display;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .yes-delete-btn {
+    background-color: #00A551 !important;
+    border: #00A551;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 16px;
+
+    position: static;
+    width: 109px;
+    height: 38px;
+    left: 74px;
+    top: 0px;
+    color: #FFFFFF !important;
+    font-family: SF Pro Display;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .cancel{
+    border: 0.5px solid #00A551;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 16px;
+
+    position: static;
+    width: auto;
+    height: 38px;
+    left: 74px;
+    top: 0px;
+
+    font-family: SF Pro Display;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #00A551;
+  }
+}
+
+body{
+  overflow-x: hidden;
+}
+
+.ant-table-column-sorters {
+  float: left;
+}
+.ant-table-column-title {
+  padding-right: 9.56px;
+}

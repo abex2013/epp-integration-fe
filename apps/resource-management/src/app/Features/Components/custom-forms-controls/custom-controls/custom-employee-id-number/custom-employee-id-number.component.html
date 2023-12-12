@@ -1,0 +1,35 @@
+<nz-form-item
+    class="form-item">
+    <nz-form-label
+      class="excel-form-label"
+      [nzSm]="labelConfig.nzSm" 
+      [nzXs]="labelConfig.nzXs"
+      [nzRequired]="required">
+      {{label}}
+    </nz-form-label>
+    <nz-form-control
+    [nzSm]="controlConfig.nzSm" 
+    [nzXs]="controlConfig.nzXs"
+    [nzErrorTip]="errMessage"
+    nzHasFeedback>
+      <nz-input-group
+        [nzAddOnBefore]="prefixTemplate">
+        <input
+        class="excel-empmloyeeIdNumber-control"
+        [formControl]="getIdNumber()" nzPlaceholder="'12345/21'"
+        (ngModelChange)="onChange()" nz-input />
+        <ng-template #prefixTemplate
+            >
+            <nz-select
+            class="prefix employee-prefix"
+            [formControl]="getPrefix()"
+            (ngModelChange)="onPrefixSelect()">
+                <nz-option
+                    *ngFor="let choice of (prefices$ | async)"
+                    [nzValue]="choice.value" [nzLabel]="choice.label">
+                </nz-option>
+            </nz-select>
+        </ng-template>
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>

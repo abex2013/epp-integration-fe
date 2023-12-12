@@ -1,0 +1,43 @@
+
+.project-name-palet {
+    ///display: flex;
+
+    background-color: #DCFFDC;
+    ///border-radius: 2px;
+
+
+    &:hover {
+        background-color: #B7FFB7;
+    }
+
+
+    .elipses-and-hours {
+        i {
+            transform: rotate(90deg);
+            cursor: pointer;
+        }
+    }
+}
+
+.project-name-palet-approval{
+    background-color: #c9cdc9;
+
+    .elipses-and-hours {
+        i {
+            transform: rotate(90deg);
+            cursor: default;
+        }
+    }
+
+}
+.popup-confirmation{
+  background-color: #FFFFFF;
+  border: #00A551;
+  height: 194px;
+  width: 328px;
+  left: 532px;
+  top: 357px;
+  border-radius: 2px;
+  padding: 24px;
+
+}

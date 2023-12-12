@@ -1,0 +1,18 @@
+span::-moz-selection { background: #00a551; color: white; }
+  span::selection { background: #00a551; color: white; }
+  
+  .label::-moz-selection { background: #00a551; color: white; }
+  .label::selection { background: #00a551; color: white; }
+  
+  p::-moz-selection { background: #00a551; color: white; }
+  p::selection { background: #00a551; color: white; }
+  
+  input::-moz-selection { background: #00a551; color: white; }
+  input::selection { background: #00a551; color: white; }
+  
+  textarea::-moz-selection { background: #00a551; color: white; }
+  textarea::selection { background: #00a551; color: white; }
+  
+  h4::-moz-selection { background: #00a551; color: white; }
+  h4::selection { background: #00a551; color: white; }
+  

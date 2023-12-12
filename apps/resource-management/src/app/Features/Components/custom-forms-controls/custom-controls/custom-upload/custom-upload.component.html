@@ -1,0 +1,26 @@
+<div class="clearfix">
+  <div>
+    <nz-avatar [nzShape]="'circle'" [nzSize]="64" [nzIcon]="'user'" [nzSrc]="fileList[fileList.length-1].url">
+    </nz-avatar>
+  </div>
+  <div class="profile-buttons-container">
+    <div class="profile-button-container">
+      <nz-upload nzAction="http://localhost:14696/api/v1/EmployeePhoto">
+        <button
+          class="profile-button-add"
+          disabled>
+          <i nz-icon nzType="upload"></i>
+          Upload
+        </button>
+      </nz-upload>
+    </div>
+    <div class="profile-button-container">
+      <button
+        class="profile-button-delete"
+        disabled>
+        <i nz-icon nzType="delete"></i>
+        Delete
+      </button>
+    </div>
+  </div>
+</div>

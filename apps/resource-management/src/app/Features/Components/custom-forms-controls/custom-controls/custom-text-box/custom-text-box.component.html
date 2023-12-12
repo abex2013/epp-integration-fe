@@ -1,0 +1,20 @@
+<nz-form-item
+    class="form-item">
+    <nz-form-label
+      class="form-label"
+      [nzSm]="labelConfig.nzSm" 
+      [nzXs]="labelConfig.nzXs"
+      [nzRequired]="required">
+      {{label}}
+    </nz-form-label>
+    <nz-form-control
+    [nzSm]="controlConfig.nzSm" 
+    [nzXs]="controlConfig.nzXs"
+    [nzErrorTip]="errMessage"
+    nzHasFeedback>
+      <input
+        class="excel-single-control"
+        [formControl]="myControl" nzPlaceHolder="Smith"
+         (ngModelChange)="onChange()" nz-input />
+    </nz-form-control>
+  </nz-form-item>

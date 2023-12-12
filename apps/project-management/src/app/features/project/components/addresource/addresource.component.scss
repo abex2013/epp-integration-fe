@@ -1,0 +1,121 @@
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+::ng-deep .ant-table-thead > tr > th {
+  background-color: #e8ffe8;
+}
+
+::ng-deep .ant-btn {
+  background: #00a551;
+  border-radius: 2px;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #e8ffe8;
+}
+
+.clear-button {
+  font-family: -apple-system, system-ui, BlinkMacSystemFont;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+
+  border-color: #00a551;
+
+  color: #00a551;
+}
+
+.page-title {
+  font-family: -apple-system, system-ui, BlinkMacSystemFont;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+
+  color: #262626;
+}
+.assgin-link {
+  font-family: -apple-system, system-ui, BlinkMacSystemFont;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: #00a551;
+}
+
+::ng-deep .ant-radio-checked .ant-radio-inner {
+  border-color: #00a551 !important ;
+}
+
+::ng-deep .ant-radio-checked .ant-radio-inner:after {
+  background-color: #00a551;
+}
+
+::ng-deep .ant-radio:hover .ant-radio-inner {
+  border-color: #00a551;
+}
+::ng-deep .ant-table-tbody > tr > td {
+  font-family: -apple-system, system-ui, BlinkMacSystemFont;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+
+*{
+  font-family: -apple-system, system-ui, BlinkMacSystemFont;
+
+ }
+
+
+ .redAstrics {
+  color: red;
+  margin-top: 8px;
+  font-size: 1.3rem;
+  margin-left: 10px;
+}
+
+
+::ng-deep .ant-modal-content  {
+  height: 24.5rem;
+}
+
+::ng-deep .ant-form-item-label>label {
+  margin: 0;
+  font-size: medium;
+  font-weight: 500;
+}
+
+
+form {
+  font-family: -apple-system, system-ui, BlinkMacSystemFont;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #262626;
+}
+
+.createButton {
+  background: #00a551;
+  border-color: #00a551;
+}
+
+.cancelButton {
+  color: #00a551;
+  border-color: #00a551;
+}
+
+::ng-deep .ant-tabs>.ant-tabs-nav .ant-tabs-nav-list, .ant-tabs>div>.ant-tabs-nav .ant-tabs-nav-list {
+
+  background: #FFFFFF !important;
+
+box-shadow: inset -2px 0px 0px #DADADA !important;
+
+  }

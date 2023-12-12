@@ -1,0 +1,92 @@
+<exec-epp-page-title></exec-epp-page-title>
+<div nz-row>
+  <div nz-col nzSpan="4">
+    <exec-epp-side-bar [active]="1"> </exec-epp-side-bar>
+  </div>
+  <div nz-col nzSpan="20" class="inner-content">
+    <div nz-row>
+      <div nz-col nzSpan="21">
+        <h1>Personal Addresses</h1>
+      </div>
+
+      <div nz-col nzSpan="3">
+        <button class="addButton" nz-button (click)="addaddress()">
+          <span>Add Address</span>
+        </button>
+      </div>
+    </div>
+
+    <nz-table
+      class="table"
+      #rowSelectionTable
+      nzShowSizeChanger
+      [nzData]="form.allAddresses"
+    >
+      <thead>
+        <tr class="tr">
+          <th>Country</th>
+          <th>City/SubCity</th>
+          <th style="max-width: 1px">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of form.allAddresses; let i = index">
+          <td>{{ data.Country }}</td>
+          <td>{{ data.City }}</td>
+
+          <td>
+            <div nz-row>
+              <div
+                nz-col
+                nzSpan="2"
+                class="editable-cell"
+                [hidden]="editId === data.Guid"
+                (click)="startEdit(i)"
+              >
+                <i nz-icon nzType="edit" nzTheme="outline"></i>
+              </div>
+              &nbsp; &nbsp;
+              <div nz-col nzSpan="2">
+                <a nz-popconfirm (click)="showConfirm(i)"
+                  ><i nz-icon nzType="delete" nzTheme="outline"></i
+                ></a>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+    <div nz-col nzSpan="3">
+      <button class="addButtonwhenNodata"  nz-button (click)="addaddress()">
+        <span> Add Address</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<nz-modal
+  [(nzVisible)]="isVisible"
+  [nzWidth]="'36%'"
+  [nzTitle]="addButton +' Address'"
+  [nzFooter]="null"
+  (nzOnCancel)="exitModal()"
+  (nzOnOk)="handleOk()"
+  nzMaskClosable="false"
+>
+  <ng-container *nzModalContent class ="layer">
+    <div class="overflow-scroll">
+      <exec-epp-address-detail-group></exec-epp-address-detail-group>
+    </div>
+    <button
+      nz-button
+      class="saveButton"
+      (click)="add()"
+      [disabled]="!form.addressForm.valid"
+      [title]="form.addressForm.invalid?'Enter valid personal detail.':''"
+    >
+      {{addButton}}
+    </button>
+    &nbsp;
+    <button nz-button class="cancelButton" (click)="resetForm()">Clear</button>
+  </ng-container>
+</nz-modal>

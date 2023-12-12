@@ -1,0 +1,75 @@
+
+/* Form drawer */
+
+.timesheet-date-range {
+
+    .from-date-to-date {
+        nz-date-picker {
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-bottom-width: 0.5px;
+            border-bottom-style: solid;
+            border-bottom-color: #3E3D40;
+        }
+    }
+}
+
+.date-column-container{
+    border-width: 2px;
+    border-style: solid;
+    border-color: #F52121;
+    border-radius: 4px;
+}
+
+
+
+.timesheet-detail {
+
+    //padding-top: 16px;
+    padding-right: 23.5px;
+    padding-bottom: 25px;
+    padding-left: 23.5px;
+
+
+
+    .save-and-clear {
+
+        #save {
+            width: 62px;
+            align-items: center;
+
+            background-color: #BFBFBF;
+            border-radius: 2px;
+            border-width: 1px;
+            border-style: solid;
+            border-color: #F5F5F5;
+            color: #FFFFFF;
+            
+            &:enabled {
+                background-color: #00A551;
+            }
+           
+        }
+
+        #clear {
+            width: 65px;
+            margin-left: 16px;
+
+            background-color: #FFFFFF;
+
+            color: #BFBFBF;
+
+            &:enabled {
+                border-color: #00A551;
+                color: #00A551
+            }
+        }
+    }
+}
+
+[nz-button] {
+    width: 25%;
+    background-color: #00A551;
+    color:#F5F5F5
+}

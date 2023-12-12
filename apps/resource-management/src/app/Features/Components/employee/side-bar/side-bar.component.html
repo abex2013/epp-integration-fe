@@ -1,0 +1,31 @@
+
+<br/>
+<!--nzSelected ---->
+<ul nz-menu nzMode="inline" >
+  <li nz-menu-item  [nzSelected]="active===0" routerLink="/employee/add-employee/personal-info"
+  s>
+    <i class="nz-icon" nz-icon [nzType]="'unordered-list'" [nzTheme]="'outline'"></i>
+    Personal Detail
+  </li>
+  <li nz-menu-item [nzSelected]="active===1"  routerLink="/employee/add-employee/address-view">
+    <i
+      class="nz-icon"
+      nz-icon
+      [nzType]="'environment'"
+      [nzTheme]="'outline'"
+    ></i
+    >Personal Addresses
+  </li>
+  <li nz-menu-item [nzSelected]="active===2" routerLink="/employee/add-employee/family-detail-view">
+    <i class="nz-icon" nz-icon [nzType]="'file-text'" [nzTheme]="'outline'"></i>
+    Family Details
+  </li>
+  <li nz-menu-item [nzSelected]="active===3" routerLink="/employee/add-employee/emergencycontacts-view">
+    <i class="nz-icon" nz-icon [nzType]="'contacts'" [nzTheme]="'outline'"></i>
+    Emergency Contacts
+  </li>
+  <li nz-menu-item [nzSelected]="active===4" routerLink="/employee/add-employee/Organization-Detail">
+    <i class="nz-icon" nz-icon [nzType]="'apartment'" [nzTheme]="'outline'"></i>
+    Organizational detail
+  </li>
+</ul>

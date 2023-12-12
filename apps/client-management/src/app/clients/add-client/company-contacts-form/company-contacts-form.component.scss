@@ -1,0 +1,51 @@
+$tableHeadingBackgroundColour:#B4DFB4 !important;
+$tblRowBackgroundColour:#F9FFF9;
+$addClientButtonFloat:right;
+$countryCodeWidth:8vw !important;
+
+$footer-btn:left;
+$addBtnMarginRight:1rem;
+.table_heading
+{
+background-color: $tableHeadingBackgroundColour
+}
+tr:nth-child(even) {background: $tblRowBackgroundColour}
+
+button.ant-btn {
+  float: $addClientButtonFloat;
+}
+::ng-deep  .phone-select {
+  min-width: $countryCodeWidth;
+}
+::ng-deep .ant-modal-footer {
+
+  text-align: left !important;
+}
+
+
+.footer-btn {
+  float: $footer-btn;
+}
+button.add-btn.ant-btn {
+
+  margin-right: $addBtnMarginRight;
+}
+.error-block
+{
+  color: red !important;
+}
+
+::ng-deep ant-btn:hover, .ant-btn:focus, .ant-btn:active {
+  background-color: #00A551;
+  font-family: SF Pro Display;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #FFFFFF;
+}
+.clear-btn {
+  background: white;
+  color: #00a551;
+  margin-right: 10px;
+  border: 0.5px solid #00a551;
+}

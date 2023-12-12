@@ -1,0 +1,200 @@
+<app-timesheet-header class="md:flex lg:flex xl:flex ml-8" [isApproved]=true>
+</app-timesheet-header>
+<hr class="mb-4">
+
+
+<div routerLink="/timesheet" class="back">
+  <div class="back-navigator">
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left mt-1"
+      viewBox="0 0 16 16">
+      <path fill-rule="evenodd"
+        d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+    </svg>
+
+
+  </div>
+  <span class="ml-1 back-navigator">Back</span>
+</div>
+
+<div nz-row class="controllers">
+
+    <div *ngIf="currentNameSubject$ | async" nz-col>
+        <button nz-button nzType="default"
+        [disabled]="qtyofItemsSelected <= 0"
+        >Bulk Approval</button>
+
+        <br>
+    </div>
+
+    <div nz-col nzSpan="6" class="ml-1">
+      <nz-input-group [nzSuffix]="suffixIconSearch" >
+        <input  type="text" nz-input placeholder="Search" />
+      </nz-input-group>
+      <ng-template #suffixIconSearch>
+        <i nz-icon nzType="search"></i>
+      </ng-template>
+  
+    </div>
+    
+  <br>
+  <div nz-col class="ml-1">
+    <nz-date-picker nzMode="week" [(ngModel)]="date"></nz-date-picker>
+
+  </div>
+</div>
+<div class="tab">
+
+
+  <div class="mb-4">
+    <nz-tabset nzRight [nzSelectedIndex]=1 (nzSelectedIndexChange)="onTabSelected($event)">
+      <nz-tab nzRight nzTitle="All">
+
+        <div nzRight class="content">
+          <nz-table class="manager-table" #basicTable [nzData]="employees" [nzFrontPagination]=false>
+            <thead>
+              <tr>
+                <th [nzSortFn]="true" (click)="sorter('Name')">Name</th>
+                <th [nzSortFn]="true" (click)="sorter('Date Range')">Date range</th>
+                <th [nzSortFn]="true" (click)="sorter('Project Name')">Project Came</th>
+                <th [nzSortFn]="true" (click)="sorter('Client Name')">Client name</th>
+                <th>Hours</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let row of employees | sort:[sortByParam, sortDirection]" class="clickable" (click)="showModal(row.id)">
+                <td>{{row.name}}</td>
+                <td>{{row.dateRange | date:'MMM-dd '}} - {{ row.dateRange | date}}</td>
+                <td>{{row.projectName}}</td>
+                <td>{{row.clientName}}</td>
+                <td>{{row.hours}}</td>
+                <td>
+                  <div [ngClass]="{
+                    'is-blue': row.status === 'Request for review',
+                    'is-yellow': row.status === 'Awaiting Approval',
+                    'is-red': row.status === 'Approved',
+                    'is-green': row.status === 'Approved'
+                  }" style="width: 140px; height: auto;">{{row.status}}</div>
+                </td>
+              </tr>
+            </tbody>
+          </nz-table>
+          <span nz-row class="pagination  flex justify-end">
+            Showing {{pageIndexAll}} - {{ totalAll/pageSizeAll}} of {{totalAll}} entries
+            <nz-pagination [nzPageIndex]="pageIndexAll" [nzTotal]="totalAll" (nzPageIndexChange)="PageIndexChange($event)"
+              nzSimple>
+            </nz-pagination>
+          </span>
+
+        </div>
+      </nz-tab>
+      <nz-tab nzTitle="Awaiting Approval">
+        <nz-table class="manager-table" #basicTable [nzData]="employees" [nzFrontPagination]=false >
+          <thead>
+            <tr>
+              <th *ngIf="bulkCheck" [nzSelections]="listOfSelection" [(nzChecked)]="checked"
+                [nzIndeterminate]="indeterminate" (nzCheckedChange)="onAllChecked($event)"></th>
+              <th [nzSortFn]="true" (click)="sorter('Name')">Name</th>
+              <th [nzSortFn]="true" (click)="sorter('Date Range')">Date range</th>
+              <th [nzSortFn]="true" (click)="sorter('Project Name')">Project Came</th>
+              <th [nzSortFn]="true" (click)="sorter('Client Name')">Client name</th>
+              <th>Hours</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let row of employees | sort:[sortByParam, sortDirection]" class="clickable"
+              (click)="showModal(row.id)">
+              <td *ngIf="bulkCheck" [nzChecked]="setOfCheckedId.has(row.id)"
+                (nzCheckedChange)="onItemChecked(row.id, $event)" >
+              </td>
+              <td>{{row.name}}</td>
+              <td>{{row.dateRange | date:'MMM-dd '}} - {{ row.dateRange | date}}</td>
+              <td>{{row.projectName}}</td>
+              <td>{{row.clientName}}</td>
+              <td>{{row.hours}}</td>
+            </tr>
+          </tbody>
+        </nz-table>
+        <span nz-row class="pagination  flex justify-end">
+          Showing {{pageIndexAwaiting}} - {{ totalAwaiting/pageSizeAwaiting}} of {{totalAwaiting}} entries
+          <nz-pagination [nzPageIndex]="pageIndexAwaiting" [nzTotal]="totalAwaiting" (nzPageIndexChange)="PageIndexChange($event)"
+            nzSimple>
+          </nz-pagination>
+        </span>
+      </nz-tab>
+      <nz-tab nzTitle="Approved">
+        <nz-table class="manager-table" #basicTable [nzData]="employees" [nzFrontPagination]=false>
+          <thead>
+            <tr>
+              <th [nzSortFn]="true" (click)="sorter('Name')">Name</th>
+              <th [nzSortFn]="true" (click)="sorter('Date Range')">Date range</th>
+              <th [nzSortFn]="true" (click)="sorter('Project Name')">Project Came</th>
+              <th [nzSortFn]="true" (click)="sorter('Client Name')">Client name</th>
+              <th>Hours</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let row of employees | sort:[sortByParam, sortDirection]" class="clickable"
+              (click)="showModal(row.id)">
+              <td>{{row.name}}</td>
+              <td>{{row.dateRange | date:'MMM-dd '}} - {{ row.dateRange | date}}</td>
+              <td>{{row.projectName}}</td>
+              <td>{{row.clientName}}</td>
+              <td>{{row.hours}}</td>
+            </tr>
+          </tbody>
+        </nz-table>
+        <span nz-row class="pagination  flex justify-end">
+          Showing {{pageIndexApproved}} - {{ totalApproved/pageSizeApproved}} of {{totalApproved}} entries
+          <nz-pagination [nzPageIndex]="pageIndexApproved" [nzTotal]="totalApproved" (nzPageIndexChange)="PageIndexChange($event)"
+            nzSimple>
+          </nz-pagination>
+        </span>
+      </nz-tab>
+
+      <nz-tab nzTitle="Request for review">
+        <nz-table class="manager-table" #basicTable [nzData]="timeSheetApprovalReview" [nzFrontPagination]=false>
+          <thead>
+            <tr>
+              <th [nzSortFn]="true" (click)="sorter('Name')">Name</th>
+              <th [nzSortFn]="true" (click)="sorter('Date Range')">Date range</th>
+              <th [nzSortFn]="true" (click)="sorter('Project Name')">Project Came</th>
+              <th [nzSortFn]="true" (click)="sorter('Client Name')">Client name</th>
+              <th>Hours</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let row of timeSheetApprovalReview | sort:[sortByParam, sortDirection]" class="clickable"
+              (click)="showModal(row.id)">
+              <td>{{row.name}}</td>
+              <td>{{row.dateRange | date:'MMM-dd '}} - {{ row.dateRange | date}}</td>
+              <td>{{row.projectName}}</td>
+              <td>{{row.clientName}}</td>
+              <td>{{row.hours}}</td>
+            </tr>
+          </tbody>
+        </nz-table>
+        <span nz-row class="pagination  flex justify-end">
+          Showing {{pageIndexReview}} - {{ totalReview/pageSizeReview}} of {{totalReview}} entries
+          <nz-pagination [nzPageIndex]="pageIndexReview" [nzTotal]="totalReview" (nzPageIndexChange)="PageIndexChange($event)"
+            nzSimple>
+          </nz-pagination>
+        </span>
+      </nz-tab>
+
+
+    </nz-tabset>
+  </div>
+
+
+  <nz-modal
+  [(nzVisible)]="isVisible"
+  nzTitle="Modal Title"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+  [nzOkLoading]="isOkLoading"
+>
+  <p *nzModalContent>Modal Content</p>
+</nz-modal>
+

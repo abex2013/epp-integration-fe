@@ -1,0 +1,46 @@
+<div class="p-3 pl-16 border-b-2 header-title"> <h3> Applying to Excellerent’s Talent Pool </h3></div>
+<nz-layout class="inner-layout">
+
+  <nz-sider [style.box-shadow]="{'box-shadow': 'inset -2px 0px 0px #DADADA'}" nzWidth="228px" nzHight="715px" class="inner-side-bar" nzTheme="light">
+    <ul nz-menu nzMode="inline" class="sider-menu">
+      <li  nz-menu-item [nzSelected]='activePath("/application/personal-information")'>
+        <span class="numberCircle {{generalSubmitCheck===true?'done':'notdone'}}">
+          <span>{{generalSubmitCheck===true?'✓':1}}</span>
+        </span> 
+        <a [routerLink]="['/application/personal-information']" >Personal Information</a>  
+      </li>
+      <li nz-menu-item [nzSelected]='activePath("/application/area-of-interest")'>
+        <span class="numberCircle {{aofSubmitCheck===true?'done':'notdone'}}">
+          <span>{{aofSubmitCheck===true?'✓':2}}</span>
+        </span> 
+        <a [routerLink]="['/application/area-of-interest']" >Area of Interest</a>  
+      </li>
+      <li  nz-menu-item [nzSelected]='activePath("/application/education")'>
+        <span class="numberCircle {{educationSubmitCheck===true?'done':'notdone'}}">
+          <span>{{educationSubmitCheck===true?'✓':3}}</span>
+        </span> 
+        <a [routerLink]="['/application/education']" >Education</a>  
+      </li>
+      <li  nz-menu-item [nzSelected]='activePath("/application/work-experience")'>
+        <span class="numberCircle {{wExperienceSubmitCheck===true?'done':'notdone'}}">
+          <span>{{wExperienceSubmitCheck===true?'✓':4}}</span>
+        </span> 
+        <a [routerLink]="['/application/work-experience']" >Work Experience</a>  
+      </li>
+      <li nz-menu-item>
+        <span class="numberCircle {{linkSubmitCheck===true?'done':'notdone'}}"><span>{{linkSubmitCheck===true?'✓':5}}</span></span>
+        <a [routerLink]="['/application/area-of-interest3']">Links</a></li>
+      <li nz-menu-item>
+        <span class="numberCircle {{addDocumentSubmitCheck===true?'done':'notdone'}}"><span>{{addDocumentSubmitCheck===true?'✓':6}}</span></span>
+        <a [routerLink]="['/application/area-of-interest4']">Additional Documents</a></li>
+      <li nz-menu-item>
+        <span class="numberCircle"><span>7</span></span>
+        <a [routerLink]="['/application/area-of-interest5']">Review and Submit</a></li>
+      
+    </ul>
+  </nz-sider>
+
+  <nz-content class="inner-content" nzWidth="978px" nzHeight="715px">
+    <router-outlet></router-outlet>
+  </nz-content>
+</nz-layout>

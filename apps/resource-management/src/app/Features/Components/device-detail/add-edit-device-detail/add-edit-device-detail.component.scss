@@ -1,0 +1,69 @@
+.ant-menu-light .ant-menu-item-active, .ant-menu-light .ant-menu-item:hover, .ant-menu-light .ant-menu-submenu-active, .ant-menu-light .ant-menu-submenu-title:hover, .ant-menu-light .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open
+{
+    color: #262626;
+    background-color: #DCFFDC;
+}
+.ant-menu-inline .ant-menu-item::after, .ant-menu-vertical .ant-menu-item::after, .ant-menu-vertical-left .ant-menu-item::after, .ant-menu-vertical-right .ant-menu-item::after {
+    border-right: none;
+}
+.ant-menu-item-selected, .ant-menu-item-selected a, .ant-menu-item-selected a:hover, .ant-menu-item>.ant-badge a:hover {
+    color: #262626;
+    background-color: #DCFFDC;
+}
+.ant-menu-item:active, .ant-menu-submenu-title:active {
+    color: #262626;
+    background-color: #DCFFDC;
+}
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    color: #262626;
+    background-color: #DCFFDC;
+}
+[nz-icon] {
+    padding-right: 18.63px;
+}
+.sidebar {
+   box-shadow: -3px 0px 0px 0px #EAEAEA inset;
+}
+.sidebar ul {
+    box-shadow: -3px 0px 0px 0px #EAEAEA inset;
+    padding-right: 4px;
+
+}
+.sidebar .ant-menu-inline, .ant-menu-vertical, .ant-menu-vertical-left {
+    border-right: none;
+}
+.content {
+    padding-left: 24px;
+}
+button {
+    height: 38px;
+    border-radius: 2px;;
+}
+button.ant-btn-primary {
+    background-color: #00A551;
+    color: white;
+}
+
+.ant-btn-primary.ant-btn:active {
+    background-color: #00A551;
+    border-color: #00A551;
+}
+
+.ant-btn-primary:focus, .ant-btn-primary:hover {
+    background-color: #00A551;
+    border-color: #00A551;
+}
+.ant-btn-primary {
+    border-color: #00A551;
+}
+
+
+.ant-btn:focus, .ant-btn:hover {
+    color: #00A551;
+    border-color: #00A551;
+}
+
+.ant-btn-primary.ant-btn:focus, .ant-btn-primary.ant-btn:hover {
+    color: #FFFFFF;
+    border-color: #00A551;
+}

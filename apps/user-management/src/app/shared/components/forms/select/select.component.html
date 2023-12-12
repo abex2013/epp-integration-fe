@@ -1,0 +1,32 @@
+<div [formGroup]="form" class="form-container">
+  <nz-form-item class="form-item-container">
+    <div [class]="!isRequired? 'label':'label required'">{{ label }} <span class="muted">{{ labelMuted }}</span></div>
+    
+    <nz-form-control [nzErrorTip]="displayError ? errorMsg : ''">
+      <nz-input-group class="flex gap-5">
+        <nz-select
+          [nzDisabled]="disabled"
+          style="width: 100%"
+          [nzPlaceHolder]="placeholder"
+          nzShowSearch
+          [nzMaxMultipleCount]="maxNumber"
+          [nzMode]="custom ? 'tags' : multiple ? 'multiple' : 'default'"
+          [formControlName]="fcn"
+          (focusout)="onfocustout()"
+          (focus)="onfocus()"
+          [nzShowArrow]="showArrow"
+        >
+          <nz-option
+            *ngFor="let option of list"
+            [nzValue]=" option.Guid ? option.Guid : option"
+            [nzLabel]=" option.Name? option.Name : option"
+            nzCustomContent
+            [nzHide]="enableHidding && !isNotSelected(option.Guid)"
+          >
+            {{ option.Guid ? option.Name : option }}
+          </nz-option>
+        </nz-select>
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+</div>
